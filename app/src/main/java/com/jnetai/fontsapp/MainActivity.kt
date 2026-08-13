@@ -22,6 +22,8 @@ import java.io.*
 class MainActivity : AppCompatActivity() {
     private lateinit var etInput: EditText
     private lateinit var etOutput: EditText
+    private lateinit var etSearch: EditText
+    private lateinit var btnClearSearch: ImageButton
     private lateinit var rvFonts: RecyclerView
     private lateinit var btnToggleFavs: MaterialButton
     private lateinit var sbFontSize: SeekBar
@@ -37,6 +39,7 @@ class MainActivity : AppCompatActivity() {
     private var fontAdapter: FontAdapter? = null
     private var currentFontName: String? = null
     private var allFonts: List<FontStyle> = emptyList()
+    private var searchQuery = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,6 +61,8 @@ class MainActivity : AppCompatActivity() {
     private fun initViews() {
         etInput = findViewById(R.id.etInput)
         etOutput = findViewById(R.id.etOutput)
+        etSearch = findViewById(R.id.etSearch)
+        btnClearSearch = findViewById(R.id.btnClearSearch)
         rvFonts = findViewById(R.id.rvFonts)
         btnToggleFavs = findViewById(R.id.btnToggleFavs)
         sbFontSize = findViewById(R.id.sbFontSize)
@@ -102,37 +107,50 @@ class MainActivity : AppCompatActivity() {
         )
         rvFonts.adapter = fontAdapter
 
+        etSearch.addTextChangedListener(object : android.text.TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                searchQuery = s.toString().lowercase()
+                filterFonts()
+                btnClearSearch.visibility = if (searchQuery.isNotEmpty()) View.VISIBLE else View.GONE
+            }
+            override fun afterTextChanged(s: android.text.Editable?) {}
+        })
+
+        btnClearSearch.setOnClickListener {
+            etSearch.text.clear()
+            searchQuery = ""
+            filterFonts()
+            btnClearSearch.visibility = View.GONE
+        }
+
         btnToggleFavs.setOnClickListener {
             animateClick(it) {
                 showingFavourites = !showingFavourites
                 if (showingFavourites) {
                     btnToggleFavs.text = "All Fonts"
-                    val favs = FontManager.favouriteFonts
-                    fontAdapter = FontAdapter(
-                        favs,
-                        onFontClick = { font -> currentFontName = font.name; applyFont() },
-                        onFavouriteClick = { font ->
-                            if (SettingsManager.isFavourite(font.name)) SettingsManager.removeFavourite(font.name)
-                            else SettingsManager.addFavourite(font.name)
-                            fontAdapter?.notifyDataSetChanged()
-                        }
-                    )
                 } else {
                     btnToggleFavs.text = "Favourites"
-                    allFonts = FontManager.allFonts
-                    fontAdapter = FontAdapter(
-                        allFonts,
-                        onFontClick = { font -> currentFontName = font.name; applyFont() },
-                        onFavouriteClick = { font ->
-                            if (SettingsManager.isFavourite(font.name)) SettingsManager.removeFavourite(font.name)
-                            else SettingsManager.addFavourite(font.name)
-                            fontAdapter?.notifyDataSetChanged()
-                        }
-                    )
                 }
-                rvFonts.adapter = fontAdapter
+                filterFonts()
             }
         }
+    }
+
+    private fun filterFonts() {
+        val source = if (showingFavourites) FontManager.favouriteFonts else FontManager.allFonts
+        val filtered = if (searchQuery.isEmpty()) source
+        else source.filter { it.displayName.lowercase().contains(searchQuery) }
+        fontAdapter = FontAdapter(
+            filtered,
+            onFontClick = { font -> currentFontName = font.name; applyFont() },
+            onFavouriteClick = { font ->
+                if (SettingsManager.isFavourite(font.name)) SettingsManager.removeFavourite(font.name)
+                else SettingsManager.addFavourite(font.name)
+                fontAdapter?.notifyDataSetChanged()
+            }
+        )
+        rvFonts.adapter = fontAdapter
     }
 
     private fun setupSymbols() {
