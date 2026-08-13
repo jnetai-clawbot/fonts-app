@@ -6,7 +6,7 @@ project location /home/jay/Documents/Scripts/AI/OpenCode/Android-Fonts-App/
 extra fonts location /home/jay/Documents/Scripts/AI/OpenCode/Android-Fonts-App/res/font/
 store the extra fonts in app that can put in res/font/ so they can work
 
-Also find and download and add these fonts for use on this android app
+Add (find and download and add) these fonts and add them at the top of the list for use on this android app
 
 outline
 Material Symbols Outlined
@@ -72,7 +72,7 @@ Each app should have its own local folder and own github repository and own keys
 App compatibility: apps needs to work on samsung s8 and onwards and google pixel 6 and onwards
 full path to Downloads is /storage/emulated/0/Download/ (called Downloads as an alias in android)
 
-In releases on github a meaningful name should be used for example Tetris.apk (no need for a debug version of any app or game for android just put the debug version as the main version!
+In releases on github a meaningful name should be used for example Super-Fonts.apk (no need for a debug version of any app or game for android just put the debug version as the main version!
 
 Github api tokens / passwords etc can be found in /home/jay/Documents/Scripts/AI/openclaw/password-vault/
 

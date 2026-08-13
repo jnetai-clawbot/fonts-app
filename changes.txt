@@ -1,5 +1,21 @@
 # Changes Log - FontsApp
 
+## 2026-08-13 - v1.0.0 Release
+
+### Build Fixes
+- Fixed Gradle wrapper missing (added gradlew + gradle-wrapper.jar)
+- Fixed keystore path in CI workflow (moved to project root)
+- Fixed XML attribute references for MaterialComponents compatibility
+- Fixed Kotlin lambda ambiguity with named `converter =` parameter
+- Fixed Unicode escape sequences replaced with actual characters
+- Fixed literal newline characters in FontManager.kt
+- Added missing ViewGroup import in MainActivity.kt
+
+### Release
+- APK built successfully via GitHub Actions
+- Release v1.0.0 created at https://github.com/jnetai-clawbot/fonts-app/releases
+- APK uploaded as release asset
+
 ## 2026-08-13 - Initial Project Setup
 
 ### Project Structure

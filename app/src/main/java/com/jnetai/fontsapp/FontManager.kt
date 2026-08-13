@@ -4,7 +4,8 @@ data class FontStyle(
     val name: String,
     val displayName: String,
     val converter: (String) -> String,
-    val isUnicode: Boolean = true
+    val isUnicode: Boolean = true,
+    val typefaceRes: Int = 0
 )
 
 object FontManager {
@@ -63,6 +64,49 @@ object FontManager {
     private fun initFonts() {
         fonts.clear()
 
+        // TTF Fonts (loaded from res/font/)
+        fonts.add(FontStyle("material_symbols_outlined", "Material Symbols Outlined", converter = { it }, isUnicode = false, typefaceRes = R.font.material_symbols_outlined))
+        fonts.add(FontStyle("uncial_antiqua", "Uncial Antiqua", converter = { it }, isUnicode = false, typefaceRes = R.font.uncial_antiqua))
+        fonts.add(FontStyle("pirata_one", "Pirata One", converter = { it }, isUnicode = false, typefaceRes = R.font.pirata_one))
+        fonts.add(FontStyle("redacted", "Redacted", converter = { it }, isUnicode = false, typefaceRes = R.font.redacted))
+        fonts.add(FontStyle("monoton", "Monoton", converter = { it }, isUnicode = false, typefaceRes = R.font.monoton))
+        fonts.add(FontStyle("lobster", "Lobster", converter = { it }, isUnicode = false, typefaceRes = R.font.lobster))
+        fonts.add(FontStyle("pacifico", "Pacifico", converter = { it }, isUnicode = false, typefaceRes = R.font.pacifico))
+        fonts.add(FontStyle("sacramento", "Sacramento", converter = { it }, isUnicode = false, typefaceRes = R.font.sacramento))
+        fonts.add(FontStyle("fredericka_the_great", "Fredericka the Great", converter = { it }, isUnicode = false, typefaceRes = R.font.fredericka_the_great))
+        fonts.add(FontStyle("bungee_shade", "Bungee Shade", converter = { it }, isUnicode = false, typefaceRes = R.font.bungee_shade))
+        fonts.add(FontStyle("ewert", "Ewert", converter = { it }, isUnicode = false, typefaceRes = R.font.ewert))
+        fonts.add(FontStyle("special_elite", "Special Elite", converter = { it }, isUnicode = false, typefaceRes = R.font.special_elite))
+        fonts.add(FontStyle("nosifer", "Nosifer", converter = { it }, isUnicode = false, typefaceRes = R.font.nosifer))
+        fonts.add(FontStyle("knewave", "Knewave", converter = { it }, isUnicode = false, typefaceRes = R.font.knewave))
+        fonts.add(FontStyle("zeyada", "Zeyada", converter = { it }, isUnicode = false, typefaceRes = R.font.zeyada))
+        fonts.add(FontStyle("rye", "Rye", converter = { it }, isUnicode = false, typefaceRes = R.font.rye))
+        fonts.add(FontStyle("noto_sans_math", "Noto Sans Math", converter = { it }, isUnicode = false, typefaceRes = R.font.noto_sans_math))
+        fonts.add(FontStyle("marcellus_sc", "Marcellus SC", converter = { it }, isUnicode = false, typefaceRes = R.font.marcellus_sc))
+        fonts.add(FontStyle("metamorphous", "Metamorphous", converter = { it }, isUnicode = false, typefaceRes = R.font.metamorphous))
+        fonts.add(FontStyle("creepster", "Creepster", converter = { it }, isUnicode = false, typefaceRes = R.font.creepster))
+        fonts.add(FontStyle("unifrakturmaguntia", "UnifrakturMaguntia", converter = { it }, isUnicode = false, typefaceRes = R.font.unifrakturmaguntia))
+        fonts.add(FontStyle("vast_shadow", "Vast Shadow", converter = { it }, isUnicode = false, typefaceRes = R.font.vast_shadow))
+        fonts.add(FontStyle("germania_one", "Germania One", converter = { it }, isUnicode = false, typefaceRes = R.font.germania_one))
+        fonts.add(FontStyle("geostar", "Geostar", converter = { it }, isUnicode = false, typefaceRes = R.font.geostar))
+        fonts.add(FontStyle("codystar", "Codystar", converter = { it }, isUnicode = false, typefaceRes = R.font.codystar))
+        fonts.add(FontStyle("grenze_gotisch", "Grenze Gotisch", converter = { it }, isUnicode = false, typefaceRes = R.font.grenze_gotisch))
+        fonts.add(FontStyle("metal_mania", "Metal Mania", converter = { it }, isUnicode = false, typefaceRes = R.font.metal_mania))
+        fonts.add(FontStyle("slackey", "Slackey", converter = { it }, isUnicode = false, typefaceRes = R.font.slackey))
+        fonts.add(FontStyle("griffy", "Griffy", converter = { it }, isUnicode = false, typefaceRes = R.font.griffy))
+        fonts.add(FontStyle("holtwood_one_sc", "Holtwood One SC", converter = { it }, isUnicode = false, typefaceRes = R.font.holtwood_one_sc))
+        fonts.add(FontStyle("sancreek", "Sancreek", converter = { it }, isUnicode = false, typefaceRes = R.font.sancreek))
+        fonts.add(FontStyle("faster_one", "Faster One", converter = { it }, isUnicode = false, typefaceRes = R.font.faster_one))
+        fonts.add(FontStyle("butcherman", "Butcherman", converter = { it }, isUnicode = false, typefaceRes = R.font.butcherman))
+        fonts.add(FontStyle("fuggles", "Fuggles", converter = { it }, isUnicode = false, typefaceRes = R.font.fuggles))
+        fonts.add(FontStyle("caesar_dressing", "Caesar Dressing", converter = { it }, isUnicode = false, typefaceRes = R.font.caesar_dressing))
+        fonts.add(FontStyle("orbitron", "Orbitron", converter = { it }, isUnicode = false, typefaceRes = R.font.orbitron))
+        fonts.add(FontStyle("audiowide", "Audiowide", converter = { it }, isUnicode = false, typefaceRes = R.font.audiowide))
+        fonts.add(FontStyle("black_ops_one", "Black Ops One", converter = { it }, isUnicode = false, typefaceRes = R.font.black_ops_one))
+        fonts.add(FontStyle("rakkas", "Rakkas", converter = { it }, isUnicode = false, typefaceRes = R.font.rakkas))
+        fonts.add(FontStyle("londrina_outline", "Londrina Outline", converter = { it }, isUnicode = false, typefaceRes = R.font.londrina_outline))
+
+        // Unicode decorative fonts
         fonts.add(FontStyle("box_black", "Box Black", converter = { text ->
             text.map { c ->
                 when {

@@ -5,6 +5,7 @@ import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.graphics.Typeface
 import android.os.Bundle
 import android.text.InputType
 import android.view.Gravity
@@ -306,8 +307,16 @@ class MainActivity : AppCompatActivity() {
             }
             val fontName = currentFontName
             if (fontName != null) {
-                val converted = FontManager.convertText(input, fontName)
-                etOutput.setText(converted)
+                val font = FontManager.getFontByName(fontName)
+                if (font != null && font.typefaceRes != 0) {
+                    val typeface = resources.getFont(font.typefaceRes)
+                    etOutput.typeface = typeface
+                    etOutput.setText(input)
+                } else {
+                    etOutput.typeface = Typeface.DEFAULT
+                    val converted = FontManager.convertText(input, fontName)
+                    etOutput.setText(converted)
+                }
             }
         } catch (e: Exception) {
             DebugLogger.e("applyFont failed", e)
