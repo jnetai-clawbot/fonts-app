@@ -158,7 +158,7 @@ object SettingsManager {
         setHiddenFonts(hidden)
     }
 
-    fun isManualCopyEnabled(): Boolean = prefs.getBoolean(KEY_MANUAL_COPY, false)
+    fun isManualCopyEnabled(): Boolean = prefs.getBoolean(KEY_MANUAL_COPY, true)
 
     fun setManualCopyEnabled(enabled: Boolean) {
         prefs.edit().putBoolean(KEY_MANUAL_COPY, enabled).apply()

@@ -21,7 +21,7 @@ import java.io.*
 
 class MainActivity : AppCompatActivity() {
     private lateinit var etInput: EditText
-    private lateinit var etOutput: TextView
+    private lateinit var etOutput: EditText
     private lateinit var rvFonts: RecyclerView
     private lateinit var btnToggleFavs: MaterialButton
     private lateinit var sbFontSize: SeekBar
@@ -287,12 +287,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         etOutput.setOnLongClickListener {
-            if (!SettingsManager.isManualCopyEnabled()) {
-                copyToClipboard()
-                true
-            } else {
-                false
-            }
+            copyToClipboard()
+            true
         }
 
         etInput.addTextChangedListener(object : android.text.TextWatcher {
