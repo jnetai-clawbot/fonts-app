@@ -5,7 +5,7 @@
     android:orientation="horizontal"
     android:gravity="center_vertical"
     android:padding="8dp"
-    android:background="?attr/selectableItemBackground">
+    android:background="?android:attr/selectableItemBackground">
 
     <TextView
         android:id="@+id/tvFontName"
@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:textSize="14sp"
-        android:textColor="?android:attr/textColorPrimary"
+        android:textColor="?android:textColorPrimary"
         android:padding="8dp" />
 
     <ImageButton
@@ -21,17 +21,17 @@
         android:layout_width="36dp"
         android:layout_height="36dp"
         android:src="@android:drawable/arrow_up_float"
-        android:background="?attr/selectableItemBackgroundBorderless"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
         android:contentDescription="Move Up"
-        android:tint="?android:attr/textColorSecondary" />
+        android:tint="?android:textColorSecondary" />
 
     <ImageButton
         android:id="@+id/btnDown"
         android:layout_width="36dp"
         android:layout_height="36dp"
         android:src="@android:drawable/arrow_down_float"
-        android:background="?attr/selectableItemBackgroundBorderless"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
         android:contentDescription="Move Down"
-        android:tint="?android:attr/textColorSecondary" />
+        android:tint="?android:textColorSecondary" />
 
 </LinearLayout>

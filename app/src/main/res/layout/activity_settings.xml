@@ -10,11 +10,11 @@
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
+        android:layout_height="?android:attr/actionBarSize"
         android:background="?android:colorBackground"
         app:title="@string/settings"
         app:navigationIcon="@android:drawable/ic_menu_revert"
-        app:titleTextColor="?android:attr/textColorPrimary" />
+        app:titleTextColor="?android:textColorPrimary" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -51,7 +51,7 @@
                         android:layout_weight="1"
                         android:text="@string/dark_mode"
                         android:textSize="16sp"
-                        android:textColor="?android:attr/textColorPrimary" />
+                        android:textColor="?android:textColorPrimary" />
 
                     <com.google.android.material.switchmaterial.SwitchMaterial
                         android:id="@+id/switchDarkMode"
@@ -87,7 +87,7 @@
                         android:layout_weight="1"
                         android:text="@string/animations"
                         android:textSize="16sp"
-                        android:textColor="?android:attr/textColorPrimary" />
+                        android:textColor="?android:textColorPrimary" />
 
                     <com.google.android.material.switchmaterial.SwitchMaterial
                         android:id="@+id/switchAnimations"
@@ -158,7 +158,7 @@
                         android:layout_height="wrap_content"
                         android:text="Accent Color"
                         android:textSize="14sp"
-                        android:textColor="?android:attr/textColorPrimary"
+                        android:textColor="?android:textColorPrimary"
                         android:layout_marginBottom="8dp" />
 
                     <LinearLayout
@@ -239,7 +239,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/reorder_fonts"
                         android:textSize="16sp"
-                        android:textColor="?android:attr/textColorPrimary"
+                        android:textColor="?android:textColorPrimary"
                         android:layout_marginBottom="8dp" />
 
                     <androidx.recyclerview.widget.RecyclerView
