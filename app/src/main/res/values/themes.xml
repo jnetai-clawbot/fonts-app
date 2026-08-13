@@ -13,6 +13,7 @@
         <item name="colorError">@color/error</item>
         <item name="android:statusBarColor">@color/background</item>
         <item name="android:navigationBarColor">@color/background</item>
+        <item name="android:forceDarkAllowed">false</item>
     </style>
 
     <style name="Widget.FontsApp.Button" parent="Widget.MaterialComponents.Button">

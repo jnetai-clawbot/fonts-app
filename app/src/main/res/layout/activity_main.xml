@@ -14,7 +14,6 @@
         android:gravity="center_horizontal"
         android:padding="16dp">
 
-        <!-- App Title -->
         <TextView
             android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
@@ -26,7 +25,6 @@
             android:layout_marginBottom="8dp"
             android:gravity="center" />
 
-        <!-- Input Section -->
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -95,7 +93,6 @@
 
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- Font List Section -->
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -140,14 +137,13 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rvFonts"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_height="300dp"
                     android:nestedScrollingEnabled="false" />
 
             </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- Symbols Section -->
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardSymbols"
             android:layout_width="match_parent"
@@ -186,7 +182,6 @@
 
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- Emojis Section -->
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardEmojis"
             android:layout_width="match_parent"
@@ -225,7 +220,6 @@
 
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- Output Section -->
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -262,7 +256,7 @@
                         android:id="@+id/btnCopy"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:src="@android:drawable/ic_menu_save"
+                        android:src="@android:drawable/ic_menu_share"
                         android:background="?android:attr/selectableItemBackgroundBorderless"
                         android:contentDescription="@string/copy"
                         android:tint="@color/text_secondary" />
@@ -293,7 +287,6 @@
                     android:longClickable="true"
                     android:textIsSelectable="true" />
 
-                <!-- Font Size Slider -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -333,7 +326,6 @@
 
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- Transform Buttons -->
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -420,7 +412,6 @@
 
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- Action Buttons -->
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -450,7 +441,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:layout_marginBottom="8dp">
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnSymbols"
@@ -482,11 +474,18 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:layout_marginEnd="4dp"
                         android:text="@string/save"
                         android:textSize="11sp"
                         app:icon="@android:drawable/ic_menu_save"
                         app:iconSize="16dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnLoad"
@@ -506,9 +505,21 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:layout_marginEnd="4dp"
                         android:text="@string/upload_font"
                         android:textSize="11sp"
                         app:icon="@android:drawable/ic_menu_add"
+                        app:iconSize="16dp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnCopyOutput"
+                        style="@style/Widget.FontsApp.Button"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/copy"
+                        android:textSize="11sp"
+                        app:icon="@android:drawable/ic_menu_share"
                         app:iconSize="16dp" />
 
                 </LinearLayout>
@@ -517,7 +528,6 @@
 
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- Bottom Navigation -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -545,6 +555,16 @@
                 app:icon="@android:drawable/ic_menu_info_details" />
 
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="14sp"
+            android:textColor="@color/accent_green"
+            android:alpha="0"
+            android:padding="8dp" />
 
     </LinearLayout>
 

@@ -17,7 +17,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.flexbox.FlexboxLayout
 import com.google.android.material.button.MaterialButton
-import com.google.android.material.snackbar.Snackbar
 import java.io.*
 
 class MainActivity : AppCompatActivity() {
@@ -33,6 +32,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var flexEmojis: FlexboxLayout
     private lateinit var btnSymbols: MaterialButton
     private lateinit var btnEmojis: MaterialButton
+    private lateinit var tvStatus: TextView
 
     private var fontAdapter: FontAdapter? = null
     private var currentFontName: String? = null
@@ -68,6 +68,7 @@ class MainActivity : AppCompatActivity() {
         flexEmojis = findViewById(R.id.flexEmojis)
         btnSymbols = findViewById(R.id.btnSymbols)
         btnEmojis = findViewById(R.id.btnEmojis)
+        tvStatus = findViewById(R.id.tvStatus)
 
         sbFontSize.progress = SettingsManager.getFontSize()
         tvFontSize.text = SettingsManager.getFontSize().toString()
@@ -262,6 +263,10 @@ class MainActivity : AppCompatActivity() {
             animateClick(it) { uploadFont() }
         }
 
+        findViewById<MaterialButton>(R.id.btnCopyOutput).setOnClickListener {
+            animateClick(it) { copyToClipboard() }
+        }
+
         findViewById<MaterialButton>(R.id.btnSettings).setOnClickListener {
             animateClick(it) {
                 startActivity(Intent(this, SettingsActivity::class.java))
@@ -333,7 +338,7 @@ class MainActivity : AppCompatActivity() {
             }
         } catch (e: Exception) {
             DebugLogger.e("pasteFromClipboard failed", e)
-            showSnackbar("Failed to paste")
+            showStatus("Failed to paste")
         }
     }
 
@@ -341,16 +346,16 @@ class MainActivity : AppCompatActivity() {
         try {
             val text = etOutput.text?.toString() ?: ""
             if (text.isEmpty()) {
-                showSnackbar(getString(R.string.no_text))
+                showStatus(getString(R.string.no_text))
                 return
             }
             val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
             val clip = ClipData.newPlainText("styled_text", text)
             clipboard.setPrimaryClip(clip)
-            showSnackbar(getString(R.string.copied))
+            showStatus(getString(R.string.copied))
         } catch (e: Exception) {
             DebugLogger.e("copyToClipboard failed", e)
-            showSnackbar("Failed to copy")
+            showStatus("Failed to copy")
         }
     }
 
@@ -420,11 +425,11 @@ class MainActivity : AppCompatActivity() {
             val data = "$input|||$output"
             val file = File(filesDir, "saved_text.txt")
             file.writeText(data)
-            showSnackbar(getString(R.string.saved))
+            showStatus(getString(R.string.saved))
             DebugLogger.i("Text saved to file")
         } catch (e: Exception) {
             DebugLogger.e("saveToFile failed", e)
-            showSnackbar("Failed to save")
+            showStatus("Failed to save")
         }
     }
 
@@ -432,7 +437,7 @@ class MainActivity : AppCompatActivity() {
         try {
             val file = File(filesDir, "saved_text.txt")
             if (!file.exists()) {
-                showSnackbar("No saved data found")
+                showStatus("No saved data found")
                 return
             }
             val data = file.readText()
@@ -440,12 +445,12 @@ class MainActivity : AppCompatActivity() {
             if (parts.size == 2) {
                 etInput.setText(parts[0])
                 etOutput.setText(parts[1])
-                showSnackbar(getString(R.string.loaded))
+                showStatus(getString(R.string.loaded))
                 DebugLogger.i("Text loaded from file")
             }
         } catch (e: Exception) {
             DebugLogger.e("loadFromFile failed", e)
-            showSnackbar("Failed to load")
+            showStatus("Failed to load")
         }
     }
 
@@ -459,7 +464,7 @@ class MainActivity : AppCompatActivity() {
             startActivityForResult(intent, REQUEST_UPLOAD_FONT)
         } catch (e: Exception) {
             DebugLogger.e("uploadFont failed", e)
-            showSnackbar("Failed to open file picker")
+            showStatus("Failed to open file picker")
         }
     }
 
@@ -476,7 +481,7 @@ class MainActivity : AppCompatActivity() {
                     isUnicode = false
                 ))
                 refreshFontList()
-                showSnackbar(getString(R.string.font_uploaded))
+                showStatus(getString(R.string.font_uploaded))
                 DebugLogger.i("Custom font uploaded: $fontName")
             }
         } catch (e: Exception) {
@@ -518,10 +523,14 @@ class MainActivity : AppCompatActivity() {
         action()
     }
 
-    private fun showSnackbar(message: String) {
-        Snackbar.make(findViewById(android.R.id.content), message, Snackbar.LENGTH_SHORT)
-            .setAnchorView(findViewById(R.id.btnAbout))
-            .show()
+    private fun showStatus(message: String) {
+        tvStatus.text = message
+        tvStatus.alpha = 1f
+        tvStatus.animate()
+            .alpha(0f)
+            .setStartDelay(3000)
+            .setDuration(2000)
+            .start()
     }
 
     companion object {

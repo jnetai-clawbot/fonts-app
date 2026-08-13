@@ -1,5 +1,6 @@
 package com.jnetai.fontsapp
 
+import android.graphics.Typeface
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,8 +27,24 @@ class FontAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val font = fonts[position]
-        holder.tvFontName.text = font.displayName
-        holder.tvFontName.typeface = android.graphics.Typeface.DEFAULT
+        val context = holder.itemView.context
+
+        if (font.typefaceRes != 0) {
+            try {
+                val typeface = context.resources.getFont(font.typefaceRes)
+                holder.tvFontName.typeface = typeface
+                holder.tvFontName.text = font.displayName
+            } catch (e: Exception) {
+                holder.tvFontName.typeface = Typeface.DEFAULT
+                holder.tvFontName.text = font.displayName
+            }
+        } else if (font.isUnicode) {
+            holder.tvFontName.typeface = Typeface.DEFAULT
+            holder.tvFontName.text = font.displayName
+        } else {
+            holder.tvFontName.typeface = Typeface.DEFAULT
+            holder.tvFontName.text = font.displayName
+        }
 
         val isFav = SettingsManager.isFavourite(font.name)
         holder.btnFavourite.setImageResource(

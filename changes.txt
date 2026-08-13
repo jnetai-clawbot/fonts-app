@@ -1,5 +1,15 @@
 # Changes Log - FontsApp
 
+## 2026-08-13 - v1.1.0 Release
+
+### New Fonts (40 TTF Google Fonts)
+- Downloaded and added 40 Google Fonts as TTF/OTF files in res/font/
+- Material Symbols Outlined, Uncial Antiqua, Pirata One, Redacted, Monoton, Lobster, Pacifico, Sacramento, Fredericka the Great, Bungee Shade, Ewert, Special Elite, Nosifer, Knewave, Zeyada, Rye, Noto Sans Math, Marcellus SC, Metamorphous, Creepster, UnifrakturMaguntia, Vast Shadow, Germania One, Geostar, Codystar, Grenze Gotisch, Metal Mania, Slackey, Griffy, Holtwood One SC, Sancreek, Faster One, Butcherman, Fuggles, Caesar Dressing, Orbitron, Audiowide, Black Ops One, Rakkas, Londrina Outline
+- Added typefaceRes field to FontStyle data class
+- Updated MainActivity to apply Typeface for TTF fonts
+- TTF fonts placed at top of font list
+- Version bumped to 1.1.0 (versionCode 2)
+
 ## 2026-08-13 - v1.0.0 Release
 
 ### Build Fixes
