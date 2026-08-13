@@ -139,8 +139,19 @@ class MainActivity : AppCompatActivity() {
 
     private fun filterFonts() {
         val source = if (showingFavourites) FontManager.favouriteFonts else FontManager.allFonts
-        val filtered = if (searchQuery.isEmpty()) source
-        else source.filter { it.displayName.lowercase().contains(searchQuery) }
+        val query = searchQuery.lowercase().trim()
+        val filtered = if (query.isEmpty()) source
+        else {
+            val exact = source.filter { it.searchName.lowercase().contains(query) }
+            if (exact.isNotEmpty()) exact
+            else {
+                val words = query.split("\\s+".toRegex())
+                source.filter { font ->
+                    val name = font.searchName.lowercase()
+                    words.any { word -> name.contains(word) }
+                }
+            }
+        }
         fontAdapter = FontAdapter(
             filtered,
             onFontClick = { font -> currentFontName = font.name; applyFont() },
