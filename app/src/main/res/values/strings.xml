@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Fonts App</string>
+    <string name="input_hint">Enter text here…</string>
+    <string name="output_hint">Styled text appears here…</string>
+    <string name="paste">Paste</string>
+    <string name="copy">Copy</string>
+    <string name="clear">Clear</string>
+    <string name="favourites">Favourites</string>
+    <string name="symbols">Symbols</string>
+    <string name="emojis">Emojis</string>
+    <string name="settings">Settings</string>
+    <string name="about">About</string>
+    <string name="flip_up">Flip Up</string>
+    <string name="flip_down">Flip Down</string>
+    <string name="flip_left">Flip Left</string>
+    <string name="flip_right">Flip Right</string>
+    <string name="reverse">Reverse</string>
+    <string name="save">Save</string>
+    <string name="load">Load</string>
+    <string name="upload_font">Upload Font</string>
+    <string name="share_app">Share App</string>
+    <string name="check_updates">Check for Updates</string>
+    <string name="made_by">Made by jnetai.com</string>
+    <string name="font_size">Font Size</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="animations">Animations</string>
+    <string name="reorder_fonts">Reorder Fonts</string>
+    <string name="no_text">No text entered</string>
+    <string name="copied">Copied to clipboard</string>
+    <string name="saved">Saved successfully</string>
+    <string name="loaded">Loaded successfully</string>
+    <string name="font_uploaded">Font uploaded</string>
+    <string name="error">An error occurred</string>
+    <string name="clear_input">Clear Input</string>
+    <string name="clear_output">Clear Output</string>
+</resources>
