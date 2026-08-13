@@ -14,10 +14,12 @@ object FontManager {
 
     val allFonts: List<FontStyle>
         get() {
+            val hidden = SettingsManager.getHiddenFonts()
+            val visible = (fonts + customFonts).filter { !hidden.contains(it.name) }
             val ordered = SettingsManager.getFontOrder()
-            if (ordered.isEmpty()) return fonts + customFonts
+            if (ordered.isEmpty()) return visible
             val orderedList = mutableListOf<FontStyle>()
-            val remaining = (fonts + customFonts).toMutableList()
+            val remaining = visible.toMutableList()
             for (name in ordered) {
                 val found = remaining.find { it.name == name }
                 if (found != null) {
@@ -28,6 +30,9 @@ object FontManager {
             orderedList.addAll(remaining)
             return orderedList
         }
+
+    val allFontsIncludingHidden: List<FontStyle>
+        get() = fonts + customFonts
 
     val favouriteFonts: List<FontStyle>
         get() {
@@ -1199,6 +1204,329 @@ object FontManager {
 
         fonts.add(FontStyle("coffee", "C̷o̷f̷f̷e̷e̷", converter = { text ->
             text.map { "$it\u0337" }.joinToString("")
+        }))
+
+        fonts.add(FontStyle("bold_serif", "𝐁𝐨𝐥𝐝 𝐒𝐞𝐫𝐢𝐟", converter = { text ->
+            text.map { c ->
+                when (c) {
+                    'A' -> "𝐀"; 'B' -> "𝐁"; 'C' -> "𝐂"; 'D' -> "𝐃"; 'E' -> "𝐄"
+                    'F' -> "𝐅"; 'G' -> "𝐆"; 'H' -> "𝐇"; 'I' -> "𝐈"; 'J' -> "𝐉"
+                    'K' -> "𝐊"; 'L' -> "𝐋"; 'M' -> "𝐌"; 'N' -> "𝐍"; 'O' -> "𝐎"
+                    'P' -> "𝐏"; 'Q' -> "𝐐"; 'R' -> "𝐑"; 'S' -> "𝐒"; 'T' -> "𝐓"
+                    'U' -> "𝐔"; 'V' -> "𝐕"; 'W' -> "𝐖"; 'X' -> "𝐗"; 'Y' -> "𝐘"
+                    'Z' -> "𝐙"; 'a' -> "𝐚"; 'b' -> "𝐛"; 'c' -> "𝐜"; 'd' -> "𝐝"
+                    'e' -> "𝐞"; 'f' -> "𝐟"; 'g' -> "𝐠"; 'h' -> "𝐡"; 'i' -> "𝐢"
+                    'j' -> "𝐣"; 'k' -> "𝐤"; 'l' -> "𝐥"; 'm' -> "𝐦"; 'n' -> "𝐧"
+                    'o' -> "𝐨"; 'p' -> "𝐩"; 'q' -> "𝐪"; 'r' -> "𝐫"; 's' -> "𝐬"
+                    't' -> "𝐭"; 'u' -> "𝐮"; 'v' -> "𝐯"; 'w' -> "𝐰"; 'x' -> "𝐱"
+                    'y' -> "𝐲"; 'z' -> "𝐳"
+                    '0' -> "𝟎"; '1' -> "𝟏"; '2' -> "𝟐"; '3' -> "𝟑"; '4' -> "𝟒"
+                    '5' -> "𝟓"; '6' -> "𝟔"; '7' -> "𝟕"; '8' -> "𝟖"; '9' -> "𝟗"
+                    else -> c.toString()
+                }
+            }.joinToString("")
+        }))
+
+        fonts.add(FontStyle("bold_italic", "𝑩𝒐𝒍𝒅 𝑰𝒕𝒂𝒍𝒊𝒄", converter = { text ->
+            text.map { c ->
+                when (c) {
+                    'A' -> "𝑨"; 'B' -> "𝑩"; 'C' -> "𝑪"; 'D' -> "𝑫"; 'E' -> "𝑬"
+                    'F' -> "𝑭"; 'G' -> "𝑮"; 'H' -> "𝑯"; 'I' -> "𝑰"; 'J' -> "𝑱"
+                    'K' -> "𝑲"; 'L' -> "𝑳"; 'M' -> "𝑴"; 'N' -> "𝑵"; 'O' -> "𝑶"
+                    'P' -> "𝑷"; 'Q' -> "𝑸"; 'R' -> "𝑹"; 'S' -> "𝑺"; 'T' -> "𝑻"
+                    'U' -> "𝑼"; 'V' -> "𝑽"; 'W' -> "𝑾"; 'X' -> "𝑿"; 'Y' -> "𝒀"
+                    'Z' -> "𝒁"; 'a' -> "𝒂"; 'b' -> "𝒃"; 'c' -> "𝒄"; 'd' -> "𝒅"
+                    'e' -> "𝒆"; 'f' -> "𝒇"; 'g' -> "𝒈"; 'h' -> "𝒉"; 'i' -> "𝒊"
+                    'j' -> "𝒋"; 'k' -> "𝒌"; 'l' -> "𝒍"; 'm' -> "𝒎"; 'n' -> "𝒏"
+                    'o' -> "𝒐"; 'p' -> "𝒑"; 'q' -> "𝒒"; 'r' -> "𝒓"; 's' -> "𝒔"
+                    't' -> "𝒕"; 'u' -> "𝒖"; 'v' -> "𝒗"; 'w' -> "𝒘"; 'x' -> "𝒙"
+                    'y' -> "𝒚"; 'z' -> "𝒛"
+                    else -> c.toString()
+                }
+            }.joinToString("")
+        }))
+
+        fonts.add(FontStyle("sans_italic", "𝘚𝘢𝘯𝘴 𝘐𝘵𝘢𝘭𝘪𝘤", converter = { text ->
+            text.map { c ->
+                when (c) {
+                    'A' -> "𝘈"; 'B' -> "𝘉"; 'C' -> "𝘊"; 'D' -> "𝘋"; 'E' -> "𝘌"
+                    'F' -> "𝘍"; 'G' -> "𝘎"; 'H' -> "𝘏"; 'I' -> "𝘐"; 'J' -> "𝘑"
+                    'K' -> "𝘒"; 'L' -> "𝘓"; 'M' -> "𝘔"; 'N' -> "𝘕"; 'O' -> "𝘖"
+                    'P' -> "𝘗"; 'Q' -> "𝘘"; 'R' -> "𝘙"; 'S' -> "𝘚"; 'T' -> "𝘛"
+                    'U' -> "𝘜"; 'V' -> "𝘝"; 'W' -> "𝘞"; 'X' -> "𝘟"; 'Y' -> "𝘠"
+                    'Z' -> "𝘡"; 'a' -> "𝘢"; 'b' -> "𝘣"; 'c' -> "𝘤"; 'd' -> "𝘥"
+                    'e' -> "𝘦"; 'f' -> "𝘧"; 'g' -> "𝘨"; 'h' -> "𝘩"; 'i' -> "𝘪"
+                    'j' -> "𝘫"; 'k' -> "𝘬"; 'l' -> "𝘭"; 'm' -> "𝘮"; 'n' -> "𝘯"
+                    'o' -> "𝘰"; 'p' -> "𝘱"; 'q' -> "𝘲"; 'r' -> "𝘳"; 's' -> "𝘴"
+                    't' -> "𝘵"; 'u' -> "𝘶"; 'v' -> "𝘷"; 'w' -> "𝘸"; 'x' -> "𝘹"
+                    'y' -> "𝘺"; 'z' -> "𝘻"
+                    else -> c.toString()
+                }
+            }.joinToString("")
+        }))
+
+        fonts.add(FontStyle("bold_sans", "𝗕𝗼𝗹𝗱 𝗦𝗮𝗻𝘀", converter = { text ->
+            text.map { c ->
+                when (c) {
+                    'A' -> "𝗔"; 'B' -> "𝗕"; 'C' -> "𝗖"; 'D' -> "𝗗"; 'E' -> "𝗘"
+                    'F' -> "𝗙"; 'G' -> "𝗚"; 'H' -> "𝗛"; 'I' -> "𝗜"; 'J' -> "𝗝"
+                    'K' -> "𝗞"; 'L' -> "𝗟"; 'M' -> "𝗠"; 'N' -> "𝗡"; 'O' -> "𝗢"
+                    'P' -> "𝗣"; 'Q' -> "𝗤"; 'R' -> "𝗥"; 'S' -> "𝗦"; 'T' -> "𝗧"
+                    'U' -> "𝗨"; 'V' -> "𝗩"; 'W' -> "𝗪"; 'X' -> "𝗫"; 'Y' -> "𝗬"
+                    'Z' -> "𝗭"; 'a' -> "𝗮"; 'b' -> "𝗯"; 'c' -> "𝗰"; 'd' -> "𝗱"
+                    'e' -> "𝗲"; 'f' -> "𝗳"; 'g' -> "𝗴"; 'h' -> "𝗵"; 'i' -> "𝗶"
+                    'j' -> "𝗷"; 'k' -> "𝗸"; 'l' -> "𝗹"; 'm' -> "𝗺"; 'n' -> "𝗻"
+                    'o' -> "𝗼"; 'p' -> "𝗽"; 'q' -> "𝗾"; 'r' -> "𝗿"; 's' -> "𝘀"
+                    't' -> "𝘁"; 'u' -> "𝘂"; 'v' -> "𝘃"; 'w' -> "𝘄"; 'x' -> "𝘅"
+                    'y' -> "𝘆"; 'z' -> "𝘇"
+                    else -> c.toString()
+                }
+            }.joinToString("")
+        }))
+
+        fonts.add(FontStyle("bold_italic_sans", "𝙎𝙖𝙣𝙨 𝘽𝙤𝙡𝙙 𝙄𝙩𝙖𝙡𝙞𝙘", converter = { text ->
+            text.map { c ->
+                when (c) {
+                    'A' -> "𝘼"; 'B' -> "𝘽"; 'C' -> "𝘾"; 'D' -> "𝘿"; 'E' -> "𝙀"
+                    'F' -> "𝙁"; 'G' -> "𝙂"; 'H' -> "𝙃"; 'I' -> "𝙄"; 'J' -> "𝙅"
+                    'K' -> "𝙆"; 'L' -> "𝙇"; 'M' -> "𝙈"; 'N' -> "𝙉"; 'O' -> "𝙊"
+                    'P' -> "𝙋"; 'Q' -> "𝙌"; 'R' -> "𝙍"; 'S' -> "𝙎"; 'T' -> "𝙏"
+                    'U' -> "𝙐"; 'V' -> "𝙑"; 'W' -> "𝙒"; 'X' -> "𝙓"; 'Y' -> "𝙔"
+                    'Z' -> "𝙕"; 'a' -> "𝙖"; 'b' -> "𝙗"; 'c' -> "𝙘"; 'd' -> "𝙙"
+                    'e' -> "𝙚"; 'f' -> "𝙛"; 'g' -> "𝙜"; 'h' -> "𝙝"; 'i' -> "𝙞"
+                    'j' -> "𝙟"; 'k' -> "𝙠"; 'l' -> "𝙡"; 'm' -> "𝙢"; 'n' -> "𝙣"
+                    'o' -> "𝙤"; 'p' -> "𝙥"; 'q' -> "𝙦"; 'r' -> "𝙧"; 's' -> "𝙨"
+                    't' -> "𝙩"; 'u' -> "𝙪"; 'v' -> "𝙫"; 'w' -> "𝙬"; 'x' -> "𝙭"
+                    'y' -> "𝙮"; 'z' -> "𝙯"
+                    else -> c.toString()
+                }
+            }.joinToString("")
+        }))
+
+        fonts.add(FontStyle("light_serif", "Sᴇʀɪꜰ Lɪɢʜᴛ", converter = { text ->
+            val map = mapOf(
+                'A' to "A", 'B' to "B", 'C' to "C", 'D' to "D", 'E' to "E",
+                'F' to "F", 'G' to "G", 'H' to "H", 'I' to "I", 'J' to "J",
+                'K' to "K", 'L' to "L", 'M' to "M", 'N' to "N", 'O' to "O",
+                'P' to "P", 'Q' to "Q", 'R' to "R", 'S' to "S", 'T' to "T",
+                'U' to "U", 'V' to "V", 'W' to "W", 'X' to "X", 'Y' to "Y",
+                'Z' to "Z",
+                'a' to "ᴀ", 'b' to "ʙ", 'c' to "ᴄ", 'd' to "ᴅ", 'e' to "ᴇ",
+                'f' to "ꜰ", 'g' to "ɢ", 'h' to "ʜ", 'i' to "ɪ", 'j' to "ᴊ",
+                'k' to "ᴋ", 'l' to "ʟ", 'm' to "ᴍ", 'n' to "ɴ", 'o' to "ᴏ",
+                'p' to "ᴘ", 'q' to "ǫ", 'r' to "ʀ", 's' to "ꜱ", 't' to "ᴛ",
+                'u' to "ᴜ", 'v' to "ᴠ", 'w' to "ᴡ", 'x' to "x", 'y' to "ʏ",
+                'z' to "ᴢ"
+            )
+            text.map { map[it] ?: it }.joinToString("")
+        }))
+
+        fonts.add(FontStyle("subscript", "Sᵤbₛcᵣᵢₚₜ", converter = { text ->
+            val map = mapOf(
+                'a' to "ₐ", 'e' to "ₑ", 'h' to "ₕ", 'i' to "ᵢ", 'j' to "ⱼ",
+                'k' to "ₖ", 'l' to "ₗ", 'm' to "ₘ", 'n' to "ₙ", 'o' to "ₒ",
+                'p' to "ₚ", 'r' to "ᵣ", 's' to "ₛ", 't' to "ₜ", 'u' to "ᵤ",
+                'v' to "ᵥ", 'x' to "ₓ",
+                '0' to "₀", '1' to "₁", '2' to "₂", '3' to "₃", '4' to "₄",
+                '5' to "₅", '6' to "₆", '7' to "₇", '8' to "₈", '9' to "₉"
+            )
+            text.map { map[it] ?: it }.joinToString("")
+        }))
+
+        fonts.add(FontStyle("medieval", "𝔐𝔢𝔡𝔦𝔢𝔳𝔞𝔩", converter = { text ->
+            text.map { c ->
+                when (c) {
+                    'A' -> "𝔄"; 'B' -> "𝔅"; 'C' -> "ℭ"; 'D' -> "𝔇"; 'E' -> "𝔈"
+                    'F' -> "𝔉"; 'G' -> "𝔊"; 'H' -> "ℌ"; 'I' -> "ℑ"; 'J' -> "𝔍"
+                    'K' -> "𝔎"; 'L' -> "𝔏"; 'M' -> "𝔐"; 'N' -> "𝔑"; 'O' -> "𝔒"
+                    'P' -> "𝔓"; 'Q' -> "𝔔"; 'R' -> "ℜ"; 'S' -> "𝔖"; 'T' -> "𝔗"
+                    'U' -> "𝔘"; 'V' -> "𝔙"; 'W' -> "𝔚"; 'X' -> "𝔛"; 'Y' -> "𝔜"
+                    'Z' -> "ℨ"; 'a' -> "𝔞"; 'b' -> "𝔟"; 'c' -> "𝔠"; 'd' -> "𝔡"
+                    'e' -> "𝔢"; 'f' -> "𝔣"; 'g' -> "𝔤"; 'h' -> "𝔥"; 'i' -> "𝔦"
+                    'j' -> "𝔧"; 'k' -> "𝔨"; 'l' -> "𝔩"; 'm' -> "𝔪"; 'n' -> "𝔫"
+                    'o' -> "𝔬"; 'p' -> "𝔭"; 'q' -> "𝔮"; 'r' -> "𝔯"; 's' -> "𝔰"
+                    't' -> "𝔱"; 'u' -> "𝔲"; 'v' -> "𝔳"; 'w' -> "𝔴"; 'x' -> "𝔵"
+                    'y' -> "𝔶"; 'z' -> "𝔷"
+                    else -> c.toString()
+                }
+            }.joinToString("")
+        }))
+
+        fonts.add(FontStyle("upside_down", "∩psᴉpǝ poʍu", converter = { text ->
+            val map = mapOf(
+                'a' to "ɐ", 'b' to "q", 'c' to "ɔ", 'd' to "p", 'e' to "ǝ",
+                'f' to "ɟ", 'g' to "ƃ", 'h' to "ɥ", 'i' to "ᴉ", 'j' to "ɾ",
+                'k' to "ʞ", 'l' to "l", 'm' to "ɯ", 'n' to "u", 'o' to "o",
+                'p' to "d", 'q' to "b", 'r' to "ɹ", 's' to "s", 't' to "ʇ",
+                'u' to "n", 'v' to "ʌ", 'w' to "ʍ", 'x' to "x", 'y' to "ʎ",
+                'z' to "z",
+                'A' to "∀", 'B' to "B", 'C' to "Ɔ", 'D' to "D", 'E' to "Ǝ",
+                'F' to "Ⅎ", 'G' to "פ", 'H' to "H", 'I' to "I", 'J' to "ſ",
+                'K' to "K", 'L' to "˥", 'M' to "W", 'N' to "N", 'O' to "O",
+                'P' to "Ԁ", 'Q' to "Ό", 'R' to "ᴚ", 'S' to "S", 'T' to "⊥",
+                'U' to "∩", 'V' to "Λ", 'W' to "M", 'X' to "X", 'Y' to "⅄",
+                'Z' to "Z",
+                '0' to "0", '1' to "Ɩ", '2' to "ᄅ", '3' to "Ɛ", '4' to "ㄣ",
+                '5' to "ϛ", '6' to "9", '7' to "ㄥ", '8' to "8", '9' to "6",
+                '.' to "˙", ',' to "'", '?' to "¿", '!' to "¡"
+            )
+            text.reversed().map { map[it] ?: it }.joinToString("")
+        }))
+
+        fonts.add(FontStyle("circled", "Ⓒⓘⓡⓒⓛⓔⓓ", converter = { text ->
+            text.map { c ->
+                when {
+                    c.isUpperCase() -> String(Character.toChars(0x24B6 + (c - 'A')))
+                    c.isLowerCase() -> String(Character.toChars(0x24D0 + (c - 'a')))
+                    c.isDigit() -> when (c) {
+                        '0' -> "⓪"; '1' -> "①"; '2' -> "②"; '3' -> "③"; '4' -> "④"
+                        '5' -> "⑤"; '6' -> "⑥"; '7' -> "⑦"; '8' -> "⑧"; '9' -> "⑨"
+                        else -> c.toString()
+                    }
+                    else -> c.toString()
+                }
+            }.joinToString("")
+        }))
+
+        fonts.add(FontStyle("squared", "🅂🅀🅄🄰🅁🄴🄳", converter = { text ->
+            text.map { c ->
+                when {
+                    c.isUpperCase() -> String(Character.toChars(0x1F130 + (c - 'A')))
+                    c.isLowerCase() -> String(Character.toChars(0x1F130 + (c - 'a')))
+                    else -> c.toString()
+                }
+            }.joinToString("")
+        }))
+
+        fonts.add(FontStyle("negative_squared", "🅂🅀🅄🄰🅁🄴🄳", converter = { text ->
+            text.map { c ->
+                when {
+                    c.isUpperCase() -> String(Character.toChars(0x1F170 + (c - 'A')))
+                    c.isLowerCase() -> String(Character.toChars(0x1F170 + (c - 'a')))
+                    else -> c.toString()
+                }
+            }.joinToString("")
+        }))
+
+        fonts.add(FontStyle("regional_indicator", "🇷 🇪 🇬 🇮 🇴 🇳 🇦 🇱", converter = { text ->
+            text.map { c ->
+                when {
+                    c in 'A'..'Z' -> String(Character.toChars(0x1F1E6 + (c - 'A')))
+                    c in 'a'..'z' -> String(Character.toChars(0x1F1E6 + (c - 'a')))
+                    else -> c.toString()
+                }
+            }.joinToString(" ")
+        }))
+
+        fonts.add(FontStyle("double_overline", "D̿o̿u̿b̿l̿e̿", converter = { text ->
+            text.map { "$it\u033F" }.joinToString("")
+        }))
+
+        fonts.add(FontStyle("breve", "B̆r̆ĕv̆ĕ", converter = { text ->
+            text.map { "$it\u0306" }.joinToString("")
+        }))
+
+        fonts.add(FontStyle("caron", "Čǎřǒň", converter = { text ->
+            text.map { "$it\u030C" }.joinToString("")
+        }))
+
+        fonts.add(FontStyle("circumflex", "Ĉîr̂ĉûm̂f̂l̂êx̂", converter = { text ->
+            text.map { "$it\u0302" }.joinToString("")
+        }))
+
+        fonts.add(FontStyle("tilde", "T̃ĩl̃d̃ẽ", converter = { text ->
+            text.map { "$it\u0303" }.joinToString("")
+        }))
+
+        fonts.add(FontStyle("diaeresis", "D̈ïäër̈ës̈ïs̈", converter = { text ->
+            text.map { "$it\u0308" }.joinToString("")
+        }))
+
+        fonts.add(FontStyle("cedilla", "Çȩḑi̧ļļa̧", converter = { text ->
+            text.map { "$it\u0327" }.joinToString("")
+        }))
+
+        fonts.add(FontStyle("ogonek", "Ǫg̨ǫn̨ęk̨", converter = { text ->
+            text.map { "$it\u0328" }.joinToString("")
+        }))
+
+        fonts.add(FontStyle("ring_above", "R̊i̊n̊g̊", converter = { text ->
+            text.map { "$it\u030A" }.joinToString("")
+        }))
+
+        fonts.add(FontStyle("ring_below", "R̥i̥n̥g̥", converter = { text ->
+            text.map { "$it\u0325" }.joinToString("")
+        }))
+
+        fonts.add(FontStyle("hook_above", "H̉ỏỏk̉", converter = { text ->
+            text.map { "$it\u0309" }.joinToString("")
+        }))
+
+        fonts.add(FontStyle("horn", "H̛ơr̛n̛", converter = { text ->
+            text.map { "$it\u031B" }.joinToString("")
+        }))
+
+        fonts.add(FontStyle("acute", "Áćút́é", converter = { text ->
+            text.map { "$it\u0301" }.joinToString("")
+        }))
+
+        fonts.add(FontStyle("grave", "G̀r̀àv̀è", converter = { text ->
+            text.map { "$it\u0300" }.joinToString("")
+        }))
+
+        fonts.add(FontStyle("macron", "M̄āc̄r̄ōn̄", converter = { text ->
+            text.map { "$it\u0304" }.joinToString("")
+        }))
+
+        fonts.add(FontStyle("double_acute", "D̋őűb̋l̋e̋", converter = { text ->
+            text.map { "$it\u030B" }.joinToString("")
+        }))
+
+        fonts.add(FontStyle("vertical_line_above", "V̍e̍r̍t̍i̍c̍a̍l̍", converter = { text ->
+            text.map { "$it\u030D" }.joinToString("")
+        }))
+
+        fonts.add(FontStyle("vertical_line_below", "V̩e̩r̩t̩i̩c̩a̩l̩", converter = { text ->
+            text.map { "$it\u0329" }.joinToString("")
+        }))
+
+        fonts.add(FontStyle("x_above", "X͓x͓x͓", converter = { text ->
+            text.map { "$it\u0353" }.joinToString("")
+        }))
+
+        fonts.add(FontStyle("left_half_ring", "L̜e̜f̜t̜", converter = { text ->
+            text.map { "$it\u031C" }.joinToString("")
+        }))
+
+        fonts.add(FontStyle("right_half_ring", "R̹i̹g̹h̹t̹", converter = { text ->
+            text.map { "$it\u0339" }.joinToString("")
+        }))
+
+        fonts.add(FontStyle("palatalized", "P̡a̡l̡a̡t̡a̡l̡", converter = { text ->
+            text.map { "$it\u0321" }.joinToString("")
+        }))
+
+        fonts.add(FontStyle("retroflex", "R̢e̢t̢r̢o̢f̢l̢e̢x̢", converter = { text ->
+            text.map { "$it\u0322" }.joinToString("")
+        }))
+
+        fonts.add(FontStyle("superscript", "Sᵘᵖᵉʳˢᶜʳⁱᵖᵗ", converter = { text ->
+            val map = mapOf(
+                'a' to "ᵃ", 'b' to "ᵇ", 'c' to "ᶜ", 'd' to "ᵈ", 'e' to "ᵉ",
+                'f' to "ᶠ", 'g' to "ᵍ", 'h' to "ʰ", 'i' to "ⁱ", 'j' to "ʲ",
+                'k' to "ᵏ", 'l' to "ˡ", 'm' to "ᵐ", 'n' to "ⁿ", 'o' to "ᵒ",
+                'p' to "ᵖ", 'q' to "q", 'r' to "ʳ", 's' to "ˢ", 't' to "ᵗ",
+                'u' to "ᵘ", 'v' to "ᵛ", 'w' to "ʷ", 'x' to "ˣ", 'y' to "ʸ",
+                'z' to "ᶻ",
+                'A' to "ᴬ", 'B' to "ᴮ", 'C' to "C", 'D' to "ᴰ", 'E' to "ᴱ",
+                'F' to "F", 'G' to "ᴳ", 'H' to "ᴴ", 'I' to "ᴵ", 'J' to "ᴶ",
+                'K' to "ᴷ", 'L' to "ᴸ", 'M' to "ᴹ", 'N' to "ᴺ", 'O' to "ᴼ",
+                'P' to "ᴾ", 'Q' to "Q", 'R' to "ᴿ", 'T' to "ᵀ", 'U' to "ᵁ",
+                'V' to "ⱽ", 'W' to "ᵂ",
+                '0' to "⁰", '1' to "¹", '2' to "²", '3' to "³", '4' to "⁴",
+                '5' to "⁵", '6' to "⁶", '7' to "⁷", '8' to "⁸", '9' to "⁹"
+            )
+            text.map { map[it] ?: it }.joinToString("")
         }))
 
         DebugLogger.i("FontManager initialized with ${fonts.size} fonts")

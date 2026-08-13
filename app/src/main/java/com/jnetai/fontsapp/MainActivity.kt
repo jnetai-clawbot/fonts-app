@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var etInput: EditText
     private lateinit var etOutput: EditText
     private lateinit var rvFonts: RecyclerView
-    private lateinit var spinnerFavourites: Spinner
+    private lateinit var btnToggleFavs: MaterialButton
     private lateinit var sbFontSize: SeekBar
     private lateinit var tvFontSize: TextView
     private lateinit var cardSymbols: View
@@ -59,7 +59,7 @@ class MainActivity : AppCompatActivity() {
         etInput = findViewById(R.id.etInput)
         etOutput = findViewById(R.id.etOutput)
         rvFonts = findViewById(R.id.rvFonts)
-        spinnerFavourites = findViewById(R.id.spinnerFavourites)
+        btnToggleFavs = findViewById(R.id.btnToggleFavs)
         sbFontSize = findViewById(R.id.sbFontSize)
         tvFontSize = findViewById(R.id.tvFontSize)
         cardSymbols = findViewById(R.id.cardSymbols)
@@ -78,9 +78,12 @@ class MainActivity : AppCompatActivity() {
         cardEmojis.visibility = if (SettingsManager.isEmojisVisible()) View.VISIBLE else View.GONE
     }
 
+    private var showingFavourites = false
+
     private fun setupFontList() {
         allFonts = FontManager.allFonts
         rvFonts.layoutManager = LinearLayoutManager(this)
+        rvFonts.isNestedScrollingEnabled = true
 
         fontAdapter = FontAdapter(
             allFonts,
@@ -95,58 +98,40 @@ class MainActivity : AppCompatActivity() {
                     SettingsManager.addFavourite(font.name)
                 }
                 fontAdapter?.notifyDataSetChanged()
-                updateFavouritesSpinner()
             }
         )
         rvFonts.adapter = fontAdapter
-        updateFavouritesSpinner()
-    }
 
-    private fun updateFavouritesSpinner() {
-        val favs = FontManager.favouriteFonts
-        val items = mutableListOf("All Fonts")
-        items.addAll(favs.map { it.displayName })
-
-        val adapter = object : ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, items) {
-            override fun getDropDownView(position: Int, convertView: View?, parent: ViewGroup): View {
-                val view = super.getDropDownView(position, convertView, parent) as TextView
-                view.setTextColor(resources.getColor(android.R.color.primary_text_dark, theme))
-                return view
-            }
-        }
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinnerFavourites.adapter = adapter
-
-        spinnerFavourites.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                if (position == 0) {
+        btnToggleFavs.setOnClickListener {
+            animateClick(it) {
+                showingFavourites = !showingFavourites
+                if (showingFavourites) {
+                    btnToggleFavs.text = "All Fonts"
+                    val favs = FontManager.favouriteFonts
                     fontAdapter = FontAdapter(
-                        FontManager.allFonts,
+                        favs,
                         onFontClick = { font -> currentFontName = font.name; applyFont() },
                         onFavouriteClick = { font ->
                             if (SettingsManager.isFavourite(font.name)) SettingsManager.removeFavourite(font.name)
                             else SettingsManager.addFavourite(font.name)
                             fontAdapter?.notifyDataSetChanged()
-                            updateFavouritesSpinner()
                         }
                     )
-                } else if (position <= favs.size) {
-                    val favFont = favs[position - 1]
+                } else {
+                    btnToggleFavs.text = "Favourites"
+                    allFonts = FontManager.allFonts
                     fontAdapter = FontAdapter(
-                        listOf(favFont),
+                        allFonts,
                         onFontClick = { font -> currentFontName = font.name; applyFont() },
                         onFavouriteClick = { font ->
                             if (SettingsManager.isFavourite(font.name)) SettingsManager.removeFavourite(font.name)
                             else SettingsManager.addFavourite(font.name)
                             fontAdapter?.notifyDataSetChanged()
-                            updateFavouritesSpinner()
                         }
                     )
                 }
                 rvFonts.adapter = fontAdapter
             }
-
-            override fun onNothingSelected(parent: AdapterView<*>?) {}
         }
     }
 
@@ -498,11 +483,9 @@ class MainActivity : AppCompatActivity() {
                 if (SettingsManager.isFavourite(font.name)) SettingsManager.removeFavourite(font.name)
                 else SettingsManager.addFavourite(font.name)
                 fontAdapter?.notifyDataSetChanged()
-                updateFavouritesSpinner()
             }
         )
         rvFonts.adapter = fontAdapter
-        updateFavouritesSpinner()
     }
 
     private fun animateClick(view: View, action: () -> Unit) {

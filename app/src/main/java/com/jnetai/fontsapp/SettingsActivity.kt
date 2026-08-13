@@ -13,6 +13,7 @@ class SettingsActivity : AppCompatActivity() {
     private lateinit var switchAnimations: SwitchMaterial
     private lateinit var sbAnimSpeed: SeekBar
     private lateinit var rvReorderFonts: RecyclerView
+    private lateinit var rvHideFonts: RecyclerView
     private var reorderAdapter: ReorderFontAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,6 +28,7 @@ class SettingsActivity : AppCompatActivity() {
             switchAnimations = findViewById(R.id.switchAnimations)
             sbAnimSpeed = findViewById(R.id.sbAnimSpeed)
             rvReorderFonts = findViewById(R.id.rvReorderFonts)
+            rvHideFonts = findViewById(R.id.rvHideFonts)
 
             switchDarkMode.isChecked = SettingsManager.isDarkMode()
             switchAnimations.isChecked = SettingsManager.isAnimationsEnabled()
@@ -52,6 +54,7 @@ class SettingsActivity : AppCompatActivity() {
 
             setupColorPickers()
             setupReorderFonts()
+            setupHideFonts()
 
             DebugLogger.i("SettingsActivity created")
         } catch (e: Exception) {
@@ -78,7 +81,7 @@ class SettingsActivity : AppCompatActivity() {
     }
 
     private fun setupReorderFonts() {
-        val fonts = FontManager.allFonts.toMutableList()
+        val fonts = FontManager.allFontsIncludingHidden.toMutableList()
         rvReorderFonts.layoutManager = LinearLayoutManager(this)
 
         reorderAdapter = ReorderFontAdapter(
@@ -99,8 +102,23 @@ class SettingsActivity : AppCompatActivity() {
         rvReorderFonts.adapter = reorderAdapter
     }
 
+    private fun setupHideFonts() {
+        val allFonts = FontManager.allFontsIncludingHidden
+        rvHideFonts.layoutManager = LinearLayoutManager(this)
+        rvHideFonts.isNestedScrollingEnabled = true
+
+        val hideAdapter = HideFontAdapter(
+            allFonts,
+            onToggle = { font, isVisible ->
+                SettingsManager.toggleFontHidden(font.name)
+                DebugLogger.d("Font visibility toggled: ${font.name} visible=$isVisible")
+            }
+        )
+        rvHideFonts.adapter = hideAdapter
+    }
+
     private fun saveFontOrder() {
-        val fonts = FontManager.allFonts
+        val fonts = FontManager.allFontsIncludingHidden
         val order = fonts.map { it.name }
         SettingsManager.setFontOrder(order)
         DebugLogger.d("Font order saved")

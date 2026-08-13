@@ -17,6 +17,7 @@ object SettingsManager {
     private const val KEY_FONT_ORDER = "font_order"
     private const val KEY_SYMBOLS_VISIBLE = "symbols_visible"
     private const val KEY_EMOJIS_VISIBLE = "emojis_visible"
+    private const val KEY_HIDDEN_FONTS = "hidden_fonts"
 
     private lateinit var prefs: SharedPreferences
     private val gson = Gson()
@@ -130,5 +131,29 @@ object SettingsManager {
 
     fun setEmojisVisible(visible: Boolean) {
         prefs.edit().putBoolean(KEY_EMOJIS_VISIBLE, visible).apply()
+    }
+
+    fun getHiddenFonts(): MutableSet<String> {
+        val json = prefs.getString(KEY_HIDDEN_FONTS, null) ?: return mutableSetOf()
+        return try {
+            val type = object : TypeToken<MutableSet<String>>() {}.type
+            gson.fromJson(json, type) ?: mutableSetOf()
+        } catch (e: Exception) {
+            DebugLogger.e("Failed to load hidden fonts", e)
+            mutableSetOf()
+        }
+    }
+
+    fun setHiddenFonts(hidden: Set<String>) {
+        val json = gson.toJson(hidden)
+        prefs.edit().putString(KEY_HIDDEN_FONTS, json).apply()
+    }
+
+    fun isFontHidden(fontName: String): Boolean = getHiddenFonts().contains(fontName)
+
+    fun toggleFontHidden(fontName: String) {
+        val hidden = getHiddenFonts()
+        if (hidden.contains(fontName)) hidden.remove(fontName) else hidden.add(fontName)
+        setHiddenFonts(hidden)
     }
 }

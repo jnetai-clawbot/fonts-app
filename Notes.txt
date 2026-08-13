@@ -1,11 +1,21 @@
 
 Fonts-Apps
 
+
 Release: https://github.com/jnetai-clawbot/fonts-app/releases
+
+Fixes:
+- Dark/light mode colors swapped correctly (dark mode now defaults on)
+- Added dedicated Copy button with clipboard icon in Actions section
+- Animated status message fades in, holds 3s, fades out over 2s
+- Action buttons split into 2 rows (3+3) so text flows left-to-right
+- Font list shows TTF fonts in their actual typeface as preview
+- Font list height increased to 300dp
+
 
 APK: 
 https://github.com/jnetai-clawbot/fonts-app/releases/download/v1.0.0/FontsApp.apk
-Features: 67+ decorative Unicode fonts, 500+ symbols, 400+ emojis, text transformations (flip/reverse), favourites, 
+Features: 100+ decorative Unicode fonts, 500+ symbols, 400+ emojis, text transformations (flip/reverse), favourites, 
 dark/light mode, save/load, custom font upload, about section with update check.
 
 
