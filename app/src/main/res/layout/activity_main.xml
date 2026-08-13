@@ -327,12 +327,10 @@
                     android:hint="@string/output_hint"
                     android:textSize="16sp"
                     android:background="@android:color/transparent"
-                    android:inputType="none"
+                    android:inputType="textMultiLine"
                     android:textColor="@color/text_primary"
                     android:textColorHint="@color/text_secondary"
                     android:textIsSelectable="true"
-                    android:focusable="true"
-                    android:focusableInTouchMode="false"
                     android:longClickable="true"
                     android:scrollbars="vertical" />
 
