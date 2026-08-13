@@ -63,8 +63,7 @@ object FontManager {
     private fun initFonts() {
         fonts.clear()
 
-        // Box Letters (black filled squares with white letters)
-        fonts.add(FontStyle("box_black", "Box Black") { text ->
+        fonts.add(FontStyle("box_black", "Box Black", converter = { text ->
             text.map { c ->
                 when {
                     c.isUpperCase() -> "\uD83C\uDD70" + (c - 'A').toChar()
@@ -74,10 +73,9 @@ object FontManager {
                     else -> c.toString()
                 }
             }.joinToString("")
-        })
+        }))
 
-        // Box White (white squares with black letters)
-        fonts.add(FontStyle("box_white", "Box White") { text ->
+        fonts.add(FontStyle("box_white", "Box White", converter = { text ->
             text.map { c ->
                 when {
                     c.isUpperCase() -> "\uD83C\uDD70" + (c - 'A').toChar()
@@ -87,10 +85,9 @@ object FontManager {
                     else -> c.toString()
                 }
             }.joinToString("")
-        })
+        }))
 
-        // Gothic (Fraktur bold)
-        fonts.add(FontStyle("gothic", "𝕲𝖔𝖙𝖍𝖎𝖈") { text ->
+        fonts.add(FontStyle("gothic", "𝕲𝖔𝖙𝖍𝖎𝖈", converter = { text ->
             text.map { c ->
                 when (c) {
                     'A' -> '\uD835\uDD6C'; 'B' -> '\uD835\uDD6D'; 'C' -> '\uD835\uDD6E'
@@ -114,10 +111,9 @@ object FontManager {
                     else -> c
                 }
             }.joinToString("")
-        })
+        }))
 
-        // Typewriter (monospace)
-        fonts.add(FontStyle("typewriter", "𝚃𝚢𝚙𝚎𝚠𝚛𝚒𝚝𝚎𝚛") { text ->
+        fonts.add(FontStyle("typewriter", "𝚃𝚢𝚙𝚎𝚠𝚛𝚒𝚝𝚎𝚛", converter = { text ->
             text.map { c ->
                 when (c) {
                     'A' -> '\uD835\uDEA8'; 'B' -> '\uD835\uDEA9'; 'C' -> '\uD835\uDEAA'
@@ -145,10 +141,9 @@ object FontManager {
                     else -> c
                 }
             }.joinToString("")
-        })
+        }))
 
-        // Comic (bold script)
-        fonts.add(FontStyle("comic", "𝓒𝓸𝓶𝓲𝓬") { text ->
+        fonts.add(FontStyle("comic", "𝓒𝓸𝓶𝓲𝓬", converter = { text ->
             text.map { c ->
                 when (c) {
                     'A' -> '\uD835\uDCF0'; 'B' -> '\uD835\uDCF1'; 'C' -> '\uD835\uDCF2'
@@ -172,10 +167,9 @@ object FontManager {
                     else -> c
                 }
             }.joinToString("")
-        })
+        }))
 
-        // Script (cursive)
-        fonts.add(FontStyle("script", "𝒮𝒸𝓇𝒾𝓅𝓉") { text ->
+        fonts.add(FontStyle("script", "𝒮𝒸𝓇𝒾𝓅𝓉", converter = { text ->
             text.map { c ->
                 when (c) {
                     'A' -> '\uD835\uDC9C'; 'B' -> '\uD835\uDCB5'; 'C' -> '\uD835\uDC9E'
@@ -199,10 +193,9 @@ object FontManager {
                     else -> c
                 }
             }.joinToString("")
-        })
+        }))
 
-        // Serif Bold
-        fonts.add(FontStyle("serif_bold", "𝐒𝐞𝐫𝐢𝐟 𝐁𝐨𝐥𝐝") { text ->
+        fonts.add(FontStyle("serif_bold", "𝐒𝐞𝐫𝐢𝐟 𝐁𝐨𝐥𝐝", converter = { text ->
             text.map { c ->
                 when (c) {
                     'A' -> '\uD835\uDC00'; 'B' -> '\uD835\uDC01'; 'C' -> '\uD835\uDC02'
@@ -230,10 +223,9 @@ object FontManager {
                     else -> c
                 }
             }.joinToString("")
-        })
+        }))
 
-        // Sans Bold
-        fonts.add(FontStyle("sans_bold", "𝗦𝗮𝗻𝘀 𝗕𝗼𝗹𝗱") { text ->
+        fonts.add(FontStyle("sans_bold", "𝗦𝗮𝗻𝘀 𝗕𝗼𝗹𝗱", converter = { text ->
             text.map { c ->
                 when (c) {
                     'A' -> '\uD835\uDDB4'; 'B' -> '\uD835\uDDB5'; 'C' -> '\uD835\uDDB6'
@@ -261,10 +253,9 @@ object FontManager {
                     else -> c
                 }
             }.joinToString("")
-        })
+        }))
 
-        // Circles Black (black circles with white letters)
-        fonts.add(FontStyle("circles_black", "⬤ Black") { text ->
+        fonts.add(FontStyle("circles_black", "⬤ Black", converter = { text ->
             text.map { c ->
                 when {
                     c.isUpperCase() -> String(Character.toChars(0x1F150 + (c - 'A')))
@@ -279,10 +270,9 @@ object FontManager {
                     else -> c.toString()
                 }
             }.joinToString("")
-        })
+        }))
 
-        // Circles White (white circles with black letters)
-        fonts.add(FontStyle("circles_white", "○ White") { text ->
+        fonts.add(FontStyle("circles_white", "○ White", converter = { text ->
             text.map { c ->
                 when {
                     c.isUpperCase() -> String(Character.toChars(0x1F130 + (c - 'A')))
@@ -297,10 +287,9 @@ object FontManager {
                     else -> c.toString()
                 }
             }.joinToString("")
-        })
+        }))
 
-        // Squares Black
-        fonts.add(FontStyle("squares_black", "■ Black") { text ->
+        fonts.add(FontStyle("squares_black", "■ Black", converter = { text ->
             text.map { c ->
                 when {
                     c.isUpperCase() -> String(Character.toChars(0x1F170 + (c - 'A')))
@@ -315,10 +304,9 @@ object FontManager {
                     else -> c.toString()
                 }
             }.joinToString("")
-        })
+        }))
 
-        // Squares White
-        fonts.add(FontStyle("squares_white", "□ White") { text ->
+        fonts.add(FontStyle("squares_white", "□ White", converter = { text ->
             text.map { c ->
                 when {
                     c.isUpperCase() -> String(Character.toChars(0x1F140 + (c - 'A')))
@@ -333,10 +321,9 @@ object FontManager {
                     else -> c.toString()
                 }
             }.joinToString("")
-        })
+        }))
 
-        // Reverse (upside down)
-        fonts.add(FontStyle("reverse", "ɹǝʌǝɹsǝ") { text ->
+        fonts.add(FontStyle("reverse", "ɹǝʌǝɹsǝ", converter = { text ->
             val map = mapOf(
                 'a' to '\u0250', 'b' to 'q', 'c' to '\u0254', 'd' to 'p', 'e' to '\u01DD',
                 'f' to '\u025F', 'g' to '\u0183', 'h' to '\u0265', 'i' to '\u0131',
@@ -358,10 +345,9 @@ object FontManager {
                 '\"' to '\u201E', '\'' to ',', '&' to '\u214B'
             )
             text.reversed().map { map[it] ?: it }.joinToString("")
-        })
+        }))
 
-        // Double Struck (outline)
-        fonts.add(FontStyle("double_struck", "𝔻𝕠𝕦𝕓𝕝𝕖") { text ->
+        fonts.add(FontStyle("double_struck", "𝔻𝕠𝕦𝕓𝕝𝕖", converter = { text ->
             text.map { c ->
                 when (c) {
                     'A' -> '\uD835\uDD38'; 'B' -> '\uD835\uDD39'; 'C' -> '\u2102'
@@ -389,10 +375,9 @@ object FontManager {
                     else -> c
                 }
             }.joinToString("")
-        })
+        }))
 
-        // Small Caps
-        fonts.add(FontStyle("small_caps", "Sᴍᴀʟʟ Cᴀᴘs") { text ->
+        fonts.add(FontStyle("small_caps", "Sᴍᴀʟʟ Cᴀᴘs", converter = { text ->
             val map = mapOf(
                 'a' to '\u1D00', 'b' to '\u0299', 'c' to '\u1D04', 'd' to '\u1D05',
                 'e' to '\u1D07', 'f' to '\uA730', 'g' to '\u0262', 'h' to '\u029C',
@@ -403,10 +388,9 @@ object FontManager {
                 'y' to '\u028F', 'z' to '\u1D22'
             )
             text.map { map[it] ?: it }.joinToString("")
-        })
+        }))
 
-        // Bubble
-        fonts.add(FontStyle("bubble", "ⓑⓤⓑⓑⓛⓔ") { text ->
+        fonts.add(FontStyle("bubble", "ⓑⓤⓑⓑⓛⓔ", converter = { text ->
             text.map { c ->
                 when {
                     c.isUpperCase() -> String(Character.toChars(0x24B6 + (c - 'A')))
@@ -421,10 +405,9 @@ object FontManager {
                     else -> c.toString()
                 }
             }.joinToString("")
-        })
+        }))
 
-        // Parenthesized
-        fonts.add(FontStyle("parenthesized", "⒫⒜⒭⒠⒩") { text ->
+        fonts.add(FontStyle("parenthesized", "⒫⒜⒭⒠⒩", converter = { text ->
             text.map { c ->
                 when {
                     c.isUpperCase() -> String(Character.toChars(0x1F110 + (c - 'A')))
@@ -439,10 +422,9 @@ object FontManager {
                     else -> c.toString()
                 }
             }.joinToString("")
-        })
+        }))
 
-        // Fullwidth
-        fonts.add(FontStyle("fullwidth", "ｆｕｌｌｗｉｄｔｈ") { text ->
+        fonts.add(FontStyle("fullwidth", "ｆｕｌｌｗｉｄｔｈ", converter = { text ->
             text.map { c ->
                 when {
                     c in '!'..'~' -> (c.code + 0xFEE0).toChar()
@@ -450,10 +432,9 @@ object FontManager {
                     else -> c
                 }
             }.joinToString("")
-        })
+        }))
 
-        // Monospace unicode
-        fonts.add(FontStyle("monospace_unicode", "𝚖𝚘𝚗𝚘𝚜𝚙𝚊𝚌𝚎") { text ->
+        fonts.add(FontStyle("monospace_unicode", "𝚖𝚘𝚗𝚘𝚜𝚙𝚊𝚌𝚎", converter = { text ->
             text.map { c ->
                 when (c) {
                     'A' -> '\uD835\uDEA8'; 'B' -> '\uD835\uDEA9'; 'C' -> '\uD835\uDEAA'
@@ -481,10 +462,9 @@ object FontManager {
                     else -> c
                 }
             }.joinToString("")
-        })
+        }))
 
-        // Tiny Letters (superscript)
-        fonts.add(FontStyle("tiny_letters", "ᵗⁱⁿʸ") { text ->
+        fonts.add(FontStyle("tiny_letters", "ᵗⁱⁿʸ", converter = { text ->
             val map = mapOf(
                 'a' to '\u1D43', 'b' to '\u1D47', 'c' to '\u1D9C', 'd' to '\u1D48',
                 'e' to '\u1D49', 'f' to '\u1DA0', 'g' to '\u1D4D', 'h' to '\u02B0',
@@ -503,180 +483,145 @@ object FontManager {
                 '8' to '\u2078', '9' to '\u2079'
             )
             text.map { map[it] ?: it }.joinToString("")
-        })
+        }))
 
-        // Strikethrough
-        fonts.add(FontStyle("strikethrough", "S̶t̶r̶i̶k̶e̶") { text ->
+        fonts.add(FontStyle("strikethrough", "S̶t̶r̶i̶k̶e̶", converter = { text ->
             text.map { "$it\u0336" }.joinToString("")
-        })
+        }))
 
-        // Underline
-        fonts.add(FontStyle("underline", "U̲n̲d̲e̲r̲l̲i̲n̲e̲") { text ->
+        fonts.add(FontStyle("underline", "U̲n̲d̲e̲r̲l̲i̲n̲e̲", converter = { text ->
             text.map { "$it\u0332" }.joinToString("")
-        })
+        }))
 
-        // Double Underline
-        fonts.add(FontStyle("double_underline", "D̳o̳u̳b̳l̳e̳") { text ->
+        fonts.add(FontStyle("double_underline", "D̳o̳u̳b̳l̳e̳", converter = { text ->
             text.map { "$it\u0333" }.joinToString("")
-        })
+        }))
 
-        // Wavy underline
-        fonts.add(FontStyle("wavy", "W̰a̰v̰y̰") { text ->
+        fonts.add(FontStyle("wavy", "W̰a̰v̰y̰", converter = { text ->
             text.map { "$it\u0330" }.joinToString("")
-        })
+        }))
 
-        // Dotted
-        fonts.add(FontStyle("dotted", "Ḋȯṫṫėḋ") { text ->
+        fonts.add(FontStyle("dotted", "Ḋȯṫṫėḋ", converter = { text ->
             text.map { "$it\u0307" }.joinToString("")
-        })
+        }))
 
-        // Slash through
-        fonts.add(FontStyle("slash", "S̷l̷a̷s̷h̷") { text ->
+        fonts.add(FontStyle("slash", "S̷l̷a̷s̷h̷", converter = { text ->
             text.map { "$it\u0337" }.joinToString("")
-        })
+        }))
 
-        // Cross above
-        fonts.add(FontStyle("cross", "C̶r̶o̶s̶s̶") { text ->
+        fonts.add(FontStyle("cross", "C̶r̶o̶s̶s̶", converter = { text ->
             text.map { "$it\u0336" }.joinToString("")
-        })
+        }))
 
-        // Arrow above
-        fonts.add(FontStyle("arrow", "A⃗r⃗r⃗o⃗w⃗") { text ->
+        fonts.add(FontStyle("arrow", "A⃗r⃗r⃗o⃗w⃗", converter = { text ->
             text.map { "$it\u20D7" }.joinToString("")
-        })
+        }))
 
-        // Heart above
-        fonts.add(FontStyle("heart", "H̩e̩a̩r̩t̩") { text ->
+        fonts.add(FontStyle("heart", "H̩e̩a̩r̩t̩", converter = { text ->
             text.map { "$it\u0329" }.joinToString("")
-        })
+        }))
 
-        // Star above
-        fonts.add(FontStyle("star", "S͙t͙a͙r͙") { text ->
+        fonts.add(FontStyle("star", "S͙t͙a͙r͙", converter = { text ->
             text.map { "$it\u0359" }.joinToString("")
-        })
+        }))
 
-        // Bridge above
-        fonts.add(FontStyle("bridge", "B͆r͆i͆d͆g͆e͆") { text ->
+        fonts.add(FontStyle("bridge", "B͆r͆i͆d͆g͆e͆", converter = { text ->
             text.map { "$it\u0346" }.joinToString("")
-        })
+        }))
 
-        // Smile
-        fonts.add(FontStyle("smile", "S̑m̑ȋl̑ȇ") { text ->
+        fonts.add(FontStyle("smile", "S̑m̑ȋl̑ȇ", converter = { text ->
             text.map { "$it\u0311" }.joinToString("")
-        })
+        }))
 
-        // Thunder
-        fonts.add(FontStyle("thunder", "T̽h̽u̽n̽d̽e̽r̽") { text ->
+        fonts.add(FontStyle("thunder", "T̽h̽u̽n̽d̽e̽r̽", converter = { text ->
             text.map { "$it\u033D" }.joinToString("")
-        })
+        }))
 
-        // Railway
-        fonts.add(FontStyle("railway", "R̤a̤i̤l̤w̤a̤y̤") { text ->
+        fonts.add(FontStyle("railway", "R̤a̤i̤l̤w̤a̤y̤", converter = { text ->
             text.map { "$it\u0324" }.joinToString("")
-        })
+        }))
 
-        // Wheels
-        fonts.add(FontStyle("wheels", "W̥h̥e̥e̥l̥s̥") { text ->
+        fonts.add(FontStyle("wheels", "W̥h̥e̥e̥l̥s̥", converter = { text ->
             text.map { "$it\u0325" }.joinToString("")
-        })
+        }))
 
-        // Track
-        fonts.add(FontStyle("track", "T̪r̪a̪c̪k̪") { text ->
+        fonts.add(FontStyle("track", "T̪r̪a̪c̪k̪", converter = { text ->
             text.map { "$it\u032A" }.joinToString("")
-        })
+        }))
 
-        // Up Above
-        fonts.add(FontStyle("up_above", "U̺p̺") { text ->
+        fonts.add(FontStyle("up_above", "U̺p̺", converter = { text ->
             text.map { "$it\u033A" }.joinToString("")
-        })
+        }))
 
-        // Sandwich
-        fonts.add(FontStyle("sandwich", "S̾a̾n̾d̾w̾i̾c̾h̾") { text ->
+        fonts.add(FontStyle("sandwich", "S̾a̾n̾d̾w̾i̾c̾h̾", converter = { text ->
             text.map { "$it\u033E" }.joinToString("")
-        })
+        }))
 
-        // Fair
-        fonts.add(FontStyle("fair", "F̒a̒i̒r̒") { text ->
+        fonts.add(FontStyle("fair", "F̒a̒i̒r̒", converter = { text ->
             text.map { "$it\u0312" }.joinToString("")
-        })
+        }))
 
-        // Bar
-        fonts.add(FontStyle("bar", "B̅a̅r̅") { text ->
+        fonts.add(FontStyle("bar", "B̅a̅r̅", converter = { text ->
             text.map { "$it\u0305" }.joinToString("")
-        })
+        }))
 
-        // Waves
-        fonts.add(FontStyle("waves", "W̴a̴v̴e̴s̴") { text ->
+        fonts.add(FontStyle("waves", "W̴a̴v̴e̴s̴", converter = { text ->
             text.map { "$it\u0334" }.joinToString("")
-        })
+        }))
 
-        // Sandra Peel
-        fonts.add(FontStyle("sandra_peel", "S̻a̻n̻d̻r̻a̻") { text ->
+        fonts.add(FontStyle("sandra_peel", "S̻a̻n̻d̻r̻a̻", converter = { text ->
             text.map { "$it\u033B" }.joinToString("")
-        })
+        }))
 
-        // Heater
-        fonts.add(FontStyle("heater", "H̹e̹a̹t̹e̹r̹") { text ->
+        fonts.add(FontStyle("heater", "H̹e̹a̹t̹e̹r̹", converter = { text ->
             text.map { "$it\u0339" }.joinToString("")
-        })
+        }))
 
-        // Seawave
-        fonts.add(FontStyle("seawave", "S̳e̳a̳w̳a̳v̳e̳") { text ->
+        fonts.add(FontStyle("seawave", "S̳e̳a̳w̳a̳v̳e̳", converter = { text ->
             text.map { "$it\u0333" }.joinToString("")
-        })
+        }))
 
-        // Wall
-        fonts.add(FontStyle("wall", "W̼a̼l̼l̼") { text ->
+        fonts.add(FontStyle("wall", "W̼a̼l̼l̼", converter = { text ->
             text.map { "$it\u033C" }.joinToString("")
-        })
+        }))
 
-        // Joiner
-        fonts.add(FontStyle("joiner", "J̡o̡i̡n̡e̡r̡") { text ->
+        fonts.add(FontStyle("joiner", "J̡o̡i̡n̡e̡r̡", converter = { text ->
             text.map { "$it\u0321" }.joinToString("")
-        })
+        }))
 
-        // Wrapped
-        fonts.add(FontStyle("wrapped", "W̧ŗa̧p̧p̧ȩḑ") { text ->
+        fonts.add(FontStyle("wrapped", "W̧ŗa̧p̧p̧ȩḑ", converter = { text ->
             text.map { "$it\u0327" }.joinToString("")
-        })
+        }))
 
-        // Box Packed
-        fonts.add(FontStyle("box_packed", "B̲o̲x̲") { text ->
+        fonts.add(FontStyle("box_packed", "B̲o̲x̲", converter = { text ->
             text.map { "$it\u0332" }.joinToString("")
-        })
+        }))
 
-        // Outer Pack
-        fonts.add(FontStyle("outer_pack", "O̶u̶t̶e̶r̶") { text ->
+        fonts.add(FontStyle("outer_pack", "O̶u̶t̶e̶r̶", converter = { text ->
             text.map { "$it\u0336" }.joinToString("")
-        })
+        }))
 
-        // Dot Packed
-        fonts.add(FontStyle("dot_packed", "D̤o̤t̤") { text ->
+        fonts.add(FontStyle("dot_packed", "D̤o̤t̤", converter = { text ->
             text.map { "$it\u0324" }.joinToString("")
-        })
+        }))
 
-        // Corner
-        fonts.add(FontStyle("corner", "C̘o̘r̘n̘e̘r̘") { text ->
+        fonts.add(FontStyle("corner", "C̘o̘r̘n̘e̘r̘", converter = { text ->
             text.map { "$it\u0318" }.joinToString("")
-        })
+        }))
 
-        // Joints
-        fonts.add(FontStyle("joints", "J̺o̺i̺n̺t̺s̺") { text ->
+        fonts.add(FontStyle("joints", "J̺o̺i̺n̺t̺s̺", converter = { text ->
             text.map { "$it\u033A" }.joinToString("")
-        })
+        }))
 
-        // Directions
-        fonts.add(FontStyle("directions", "D̻i̻r̻e̻c̻t̻i̻o̻n̻s̻") { text ->
+        fonts.add(FontStyle("directions", "D̻i̻r̻e̻c̻t̻i̻o̻n̻s̻", converter = { text ->
             text.map { "$it\u033B" }.joinToString("")
-        })
+        }))
 
-        // Star Join
-        fonts.add(FontStyle("star_join", "S̼t̼a̼r̼") { text ->
+        fonts.add(FontStyle("star_join", "S̼t̼a̼r̼", converter = { text ->
             text.map { "$it\u033C" }.joinToString("")
-        })
+        }))
 
-        // Italic Bold
-        fonts.add(FontStyle("italic_bold", "𝑰𝒕𝒂𝒍𝒊𝒄") { text ->
+        fonts.add(FontStyle("italic_bold", "𝑰𝒕𝒂𝒍𝒊𝒄", converter = { text ->
             text.map { c ->
                 when (c) {
                     'A' -> '\uD835\uDC68'; 'B' -> '\uD835\uDC69'; 'C' -> '\uD835\uDC6A'
@@ -700,10 +645,9 @@ object FontManager {
                     else -> c
                 }
             }.joinToString("")
-        })
+        }))
 
-        // Italic Sans
-        fonts.add(FontStyle("italic_sans", "𝘪𝘵𝘢𝘭𝘪𝘤 𝘴𝘢𝘯𝘴") { text ->
+        fonts.add(FontStyle("italic_sans", "𝘪𝘵𝘢𝘭𝘪𝘤 𝘴𝘢𝘯𝘴", converter = { text ->
             text.map { c ->
                 when (c) {
                     'A' -> '\uD835\uDE08'; 'B' -> '\uD835\uDE09'; 'C' -> '\uD835\uDE0A'
@@ -727,10 +671,9 @@ object FontManager {
                     else -> c
                 }
             }.joinToString("")
-        })
+        }))
 
-        // Bold Fraktur
-        fonts.add(FontStyle("bold_fraktur", "𝕱𝖗𝖆𝖐𝖙𝖚𝖗") { text ->
+        fonts.add(FontStyle("bold_fraktur", "𝕱𝖗𝖆𝖐𝖙𝖚𝖗", converter = { text ->
             text.map { c ->
                 when (c) {
                     'A' -> '\uD835\uDD6C'; 'B' -> '\uD835\uDD6D'; 'C' -> '\uD835\uDD6E'
@@ -754,10 +697,9 @@ object FontManager {
                     else -> c
                 }
             }.joinToString("")
-        })
+        }))
 
-        // Currency
-        fonts.add(FontStyle("currency", "₵ɄⱤⱤɆ₦₵Ɏ") { text ->
+        fonts.add(FontStyle("currency", "₵ɄⱤⱤɆ₦₵Ɏ", converter = { text ->
             val map = mapOf(
                 'A' to '\u20B3', 'B' to '\u20B1', 'C' to '\u20A1', 'D' to '\u20AF',
                 'E' to '\u20AC', 'F' to '\u20A3', 'G' to '\u20B2', 'H' to '\u20B4',
@@ -773,52 +715,43 @@ object FontManager {
                 'y' to '\u00A5'
             )
             text.map { map[it] ?: it }.joinToString("")
-        })
+        }))
 
-        // Warn
-        fonts.add(FontStyle("warn", "W̸a̸r̸n̸") { text ->
+        fonts.add(FontStyle("warn", "W̸a̸r̸n̸", converter = { text ->
             text.map { "$it\u0338" }.joinToString("")
-        })
+        }))
 
-        // Birds
-        fonts.add(FontStyle("birds", "B̬i̬r̬d̬s̬") { text ->
+        fonts.add(FontStyle("birds", "B̬i̬r̬d̬s̬", converter = { text ->
             text.map { "$it\u032C" }.joinToString("")
-        })
+        }))
 
-        // Rays
-        fonts.add(FontStyle("rays", "R̦a̦y̦ș") { text ->
+        fonts.add(FontStyle("rays", "R̦a̦y̦ș", converter = { text ->
             text.map { "$it\u0326" }.joinToString("")
-        })
+        }))
 
-        // Magna
-        fonts.add(FontStyle("magna", "M̩a̩g̩n̩a̩") { text ->
+        fonts.add(FontStyle("magna", "M̩a̩g̩n̩a̩", converter = { text ->
             text.map { "$it\u0329" }.joinToString("")
-        })
+        }))
 
-        // Fancy (combined effects)
-        fonts.add(FontStyle("fancy", "F⃠a⃠n⃠c⃠y⃠") { text ->
+        fonts.add(FontStyle("fancy", "F⃠a⃠n⃠c⃠y⃠", converter = { text ->
             text.map { "$it\u20E0" }.joinToString("")
-        })
+        }))
 
-        // Thin (light)
-        fonts.add(FontStyle("thin", "T⃩h⃩i⃩n⃩") { text ->
+        fonts.add(FontStyle("thin", "T⃩h⃩i⃩n⃩", converter = { text ->
             text.map { "$it\u20E9" }.joinToString("")
-        })
+        }))
 
-        // Gloom
-        fonts.add(FontStyle("gloom", "G̷l̷o̷o̷m̷") { text ->
+        fonts.add(FontStyle("gloom", "G̷l̷o̷o̷m̷", converter = { text ->
             text.map { "$it\u0337" }.joinToString("")
-        })
+        }))
 
-        // Paranormal
-        fonts.add(FontStyle("paranormal", "P̶a̶r̶a̶n̶o̶r̶m̶a̶l̶") { text ->
+        fonts.add(FontStyle("paranormal", "P̶a̶r̶a̶n̶o̶r̶m̶a̶l̶", converter = { text ->
             text.map { "$it\u0336" }.joinToString("")
-        })
+        }))
 
-        // Coffee
-        fonts.add(FontStyle("coffee", "C̷o̷f̷f̷e̷e̷") { text ->
+        fonts.add(FontStyle("coffee", "C̷o̷f̷f̷e̷e̷", converter = { text ->
             text.map { "$it\u0337" }.joinToString("")
-        })
+        }))
 
         DebugLogger.i("FontManager initialized with ${fonts.size} fonts")
     }
