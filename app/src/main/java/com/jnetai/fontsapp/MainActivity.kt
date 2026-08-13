@@ -197,7 +197,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         findViewById<ImageButton>(R.id.btnClearOutput).setOnClickListener {
-            animateClick(it) { etOutput.text = "" }
+            animateClick(it) { etOutput.text.clear() }
         }
 
         findViewById<MaterialButton>(R.id.btnFlipUp).setOnClickListener {
@@ -316,7 +316,7 @@ class MainActivity : AppCompatActivity() {
         try {
             val input = etInput.text?.toString() ?: ""
             if (input.isEmpty()) {
-                etOutput.text = ""
+                etOutput.text.clear()
                 return
             }
             val fontName = currentFontName
