@@ -316,7 +316,7 @@ class MainActivity : AppCompatActivity() {
         try {
             val input = etInput.text?.toString() ?: ""
             if (input.isEmpty()) {
-                etOutput.text?.clear()
+                etOutput.text = ""
                 return
             }
             val fontName = currentFontName
