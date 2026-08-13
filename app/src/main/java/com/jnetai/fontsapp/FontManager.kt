@@ -145,7 +145,9 @@ object FontManager {
                     else -> c.toString()
                 }
             }.joinToString("")
-        }))\n        fonts.add(FontStyle("typewriter", "𝚃𝚢𝚙𝚎𝚠𝚛𝚒𝚝𝚎𝚛", converter = { text ->
+        }))
+
+        fonts.add(FontStyle("typewriter", "𝚃𝚢𝚙𝚎𝚠𝚛𝚒𝚝𝚎𝚛", converter = { text ->
             text.map { c ->
                 when (c) {
                     'A' -> "𝚨"
@@ -213,7 +215,9 @@ object FontManager {
                     else -> c.toString()
                 }
             }.joinToString("")
-        }))\n        fonts.add(FontStyle("comic", "𝓒𝓸𝓶𝓲𝓬", converter = { text ->
+        }))
+
+        fonts.add(FontStyle("comic", "𝓒𝓸𝓶𝓲𝓬", converter = { text ->
             text.map { c ->
                 when (c) {
                     'A' -> "𝓰"
@@ -271,7 +275,9 @@ object FontManager {
                     else -> c.toString()
                 }
             }.joinToString("")
-        }))\n        fonts.add(FontStyle("script", "𝒮𝒸𝓇𝒾𝓅𝓉", converter = { text ->
+        }))
+
+        fonts.add(FontStyle("script", "𝒮𝒸𝓇𝒾𝓅𝓉", converter = { text ->
             text.map { c ->
                 when (c) {
                     'A' -> "𝒜"
@@ -329,7 +335,9 @@ object FontManager {
                     else -> c.toString()
                 }
             }.joinToString("")
-        }))\n        fonts.add(FontStyle("serif_bold", "𝐒𝐞𝐫𝐢𝐟 𝐁𝐨𝐥𝐝", converter = { text ->
+        }))
+
+        fonts.add(FontStyle("serif_bold", "𝐒𝐞𝐫𝐢𝐟 𝐁𝐨𝐥𝐝", converter = { text ->
             text.map { c ->
                 when (c) {
                     'A' -> "𝐀"
@@ -397,7 +405,9 @@ object FontManager {
                     else -> c.toString()
                 }
             }.joinToString("")
-        }))\n        fonts.add(FontStyle("sans_bold", "𝗦𝗮𝗻𝘀 𝗕𝗼𝗹𝗱", converter = { text ->
+        }))
+
+        fonts.add(FontStyle("sans_bold", "𝗦𝗮𝗻𝘀 𝗕𝗼𝗹𝗱", converter = { text ->
             text.map { c ->
                 when (c) {
                     'A' -> "𝖴"
@@ -465,7 +475,9 @@ object FontManager {
                     else -> c.toString()
                 }
             }.joinToString("")
-        }))\n        fonts.add(FontStyle("double_struck", "𝔻𝕠𝕦𝕓𝕝𝕖", converter = { text ->
+        }))
+
+        fonts.add(FontStyle("double_struck", "𝔻𝕠𝕦𝕓𝕝𝕖", converter = { text ->
             text.map { c ->
                 when (c) {
                     'A' -> "𝔸"
@@ -533,7 +545,9 @@ object FontManager {
                     else -> c.toString()
                 }
             }.joinToString("")
-        }))\n        fonts.add(FontStyle("italic_bold", "𝑰𝒕𝒂𝒍𝒊𝒄", converter = { text ->
+        }))
+
+        fonts.add(FontStyle("italic_bold", "𝑰𝒕𝒂𝒍𝒊𝒄", converter = { text ->
             text.map { c ->
                 when (c) {
                     'A' -> "𝑨"
@@ -591,7 +605,9 @@ object FontManager {
                     else -> c.toString()
                 }
             }.joinToString("")
-        }))\n        fonts.add(FontStyle("italic_sans", "𝘪𝘵𝘢𝘭𝘪𝘤 𝘴𝘢𝘯𝘴", converter = { text ->
+        }))
+
+        fonts.add(FontStyle("italic_sans", "𝘪𝘵𝘢𝘭𝘪𝘤 𝘴𝘢𝘯𝘴", converter = { text ->
             text.map { c ->
                 when (c) {
                     'A' -> "𝘈"
@@ -649,7 +665,9 @@ object FontManager {
                     else -> c.toString()
                 }
             }.joinToString("")
-        }))\n        fonts.add(FontStyle("bold_fraktur", "𝕱𝖗𝖆𝖐𝖙𝖚𝖗", converter = { text ->
+        }))
+
+        fonts.add(FontStyle("bold_fraktur", "𝕱𝖗𝖆𝖐𝖙𝖚𝖗", converter = { text ->
             text.map { c ->
                 when (c) {
                     'A' -> "𝕬"
@@ -707,7 +725,9 @@ object FontManager {
                     else -> c.toString()
                 }
             }.joinToString("")
-        }))\n        fonts.add(FontStyle("monospace_unicode", "𝚖𝚘𝚗𝚘𝚜𝚙𝚊𝚌𝚎", converter = { text ->
+        }))
+
+        fonts.add(FontStyle("monospace_unicode", "𝚖𝚘𝚗𝚘𝚜𝚙𝚊𝚌𝚎", converter = { text ->
             text.map { c ->
                 when (c) {
                     'A' -> "𝚨"
