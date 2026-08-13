@@ -90,167 +90,689 @@ object FontManager {
         fonts.add(FontStyle("gothic", "𝕲𝖔𝖙𝖍𝖎𝖈", converter = { text ->
             text.map { c ->
                 when (c) {
-                    'A' -> '\uD835\uDD6C'; 'B' -> '\uD835\uDD6D'; 'C' -> '\uD835\uDD6E'
-                    'D' -> '\uD835\uDD6F'; 'E' -> '\uD835\uDD70'; 'F' -> '\uD835\uDD71'
-                    'G' -> '\uD835\uDD72'; 'H' -> '\uD835\uDD73'; 'I' -> '\uD835\uDD74'
-                    'J' -> '\uD835\uDD75'; 'K' -> '\uD835\uDD76'; 'L' -> '\uD835\uDD77'
-                    'M' -> '\uD835\uDD78'; 'N' -> '\uD835\uDD79'; 'O' -> '\uD835\uDD7A'
-                    'P' -> '\uD835\uDD7B'; 'Q' -> '\uD835\uDD7C'; 'R' -> '\uD835\uDD7D'
-                    'S' -> '\uD835\uDD7E'; 'T' -> '\uD835\uDD7F'; 'U' -> '\uD835\uDD80'
-                    'V' -> '\uD835\uDD81'; 'W' -> '\uD835\uDD82'; 'X' -> '\uD835\uDD83'
-                    'Y' -> '\uD835\uDD84'; 'Z' -> '\uD835\uDD85'
-                    'a' -> '\uD835\uDD86'; 'b' -> '\uD835\uDD87'; 'c' -> '\uD835\uDD88'
-                    'd' -> '\uD835\uDD89'; 'e' -> '\uD835\uDD8A'; 'f' -> '\uD835\uDD8B'
-                    'g' -> '\uD835\uDD8C'; 'h' -> '\uD835\uDD8D'; 'i' -> '\uD835\uDD8E'
-                    'j' -> '\uD835\uDD8F'; 'k' -> '\uD835\uDD90'; 'l' -> '\uD835\uDD91'
-                    'm' -> '\uD835\uDD92'; 'n' -> '\uD835\uDD93'; 'o' -> '\uD835\uDD94'
-                    'p' -> '\uD835\uDD95'; 'q' -> '\uD835\uDD96'; 'r' -> '\uD835\uDD97'
-                    's' -> '\uD835\uDD98'; 't' -> '\uD835\uDD99'; 'u' -> '\uD835\uDD9A'
-                    'v' -> '\uD835\uDD9B'; 'w' -> '\uD835\uDD9C'; 'x' -> '\uD835\uDD9D'
-                    'y' -> '\uD835\uDD9E'; 'z' -> '\uD835\uDD9F'
-                    else -> c
+                    'A' -> "𝕬"
+                    'B' -> "𝕭"
+                    'C' -> "𝕮"
+                    'D' -> "𝕯"
+                    'E' -> "𝕰"
+                    'F' -> "𝕱"
+                    'G' -> "𝕲"
+                    'H' -> "𝕳"
+                    'I' -> "𝕴"
+                    'J' -> "𝕵"
+                    'K' -> "𝕶"
+                    'L' -> "𝕷"
+                    'M' -> "𝕸"
+                    'N' -> "𝕹"
+                    'O' -> "𝕺"
+                    'P' -> "𝕻"
+                    'Q' -> "𝕼"
+                    'R' -> "𝕽"
+                    'S' -> "𝕾"
+                    'T' -> "𝕿"
+                    'U' -> "𝖀"
+                    'V' -> "𝖁"
+                    'W' -> "𝖂"
+                    'X' -> "𝖃"
+                    'Y' -> "𝖄"
+                    'Z' -> "𝖅"
+                    'a' -> "𝖆"
+                    'b' -> "𝖇"
+                    'c' -> "𝖈"
+                    'd' -> "𝖉"
+                    'e' -> "𝖊"
+                    'f' -> "𝖋"
+                    'g' -> "𝖌"
+                    'h' -> "𝖍"
+                    'i' -> "𝖎"
+                    'j' -> "𝖏"
+                    'k' -> "𝖐"
+                    'l' -> "𝖑"
+                    'm' -> "𝖒"
+                    'n' -> "𝖓"
+                    'o' -> "𝖔"
+                    'p' -> "𝖕"
+                    'q' -> "𝖖"
+                    'r' -> "𝖗"
+                    's' -> "𝖘"
+                    't' -> "𝖙"
+                    'u' -> "𝖚"
+                    'v' -> "𝖛"
+                    'w' -> "𝖜"
+                    'x' -> "𝖝"
+                    'y' -> "𝖞"
+                    'z' -> "𝖟"
+                    else -> c.toString()
                 }
             }.joinToString("")
-        }))
-
-        fonts.add(FontStyle("typewriter", "𝚃𝚢𝚙𝚎𝚠𝚛𝚒𝚝𝚎𝚛", converter = { text ->
+        }))\n        fonts.add(FontStyle("typewriter", "𝚃𝚢𝚙𝚎𝚠𝚛𝚒𝚝𝚎𝚛", converter = { text ->
             text.map { c ->
                 when (c) {
-                    'A' -> '\uD835\uDEA8'; 'B' -> '\uD835\uDEA9'; 'C' -> '\uD835\uDEAA'
-                    'D' -> '\uD835\uDEAB'; 'E' -> '\uD835\uDEAC'; 'F' -> '\uD835\uDEAD'
-                    'G' -> '\uD835\uDEAE'; 'H' -> '\uD835\uDEAF'; 'I' -> '\uD835\uDEB0'
-                    'J' -> '\uD835\uDEB1'; 'K' -> '\uD835\uDEB2'; 'L' -> '\uD835\uDEB3'
-                    'M' -> '\uD835\uDEB4'; 'N' -> '\uD835\uDEB5'; 'O' -> '\uD835\uDEB6'
-                    'P' -> '\uD835\uDEB7'; 'Q' -> '\uD835\uDEB8'; 'R' -> '\uD835\uDEB9'
-                    'S' -> '\uD835\uDEBA'; 'T' -> '\uD835\uDEBB'; 'U' -> '\uD835\uDEBC'
-                    'V' -> '\uD835\uDEBD'; 'W' -> '\uD835\uDEBE'; 'X' -> '\uD835\uDEBF'
-                    'Y' -> '\uD835\uDEC0'; 'Z' -> '\uD835\uDEC1'
-                    'a' -> '\uD835\uDEC2'; 'b' -> '\uD835\uDEC3'; 'c' -> '\uD835\uDEC4'
-                    'd' -> '\uD835\uDEC5'; 'e' -> '\uD835\uDEC6'; 'f' -> '\uD835\uDEC7'
-                    'g' -> '\uD835\uDEC8'; 'h' -> '\uD835\uDEC9'; 'i' -> '\uD835\uDECA'
-                    'j' -> '\uD835\uDECB'; 'k' -> '\uD835\uDECC'; 'l' -> '\uD835\uDECD'
-                    'm' -> '\uD835\uDECE'; 'n' -> '\uD835\uDECF'; 'o' -> '\uD835\uDED0'
-                    'p' -> '\uD835\uDED1'; 'q' -> '\uD835\uDED2'; 'r' -> '\uD835\uDED3'
-                    's' -> '\uD835\uDED4'; 't' -> '\uD835\uDED5'; 'u' -> '\uD835\uDED6'
-                    'v' -> '\uD835\uDED7'; 'w' -> '\uD835\uDED8'; 'x' -> '\uD835\uDED9'
-                    'y' -> '\uD835\uDEDA'; 'z' -> '\uD835\uDEDB'
-                    '0' -> '\uD835\uDFEC'; '1' -> '\uD835\uDFED'; '2' -> '\uD835\uDFEE'
-                    '3' -> '\uD835\uDFEF'; '4' -> '\uD835\uDFF0'; '5' -> '\uD835\uDFF1'
-                    '6' -> '\uD835\uDFF2'; '7' -> '\uD835\uDFF3'; '8' -> '\uD835\uDFF4'
-                    '9' -> '\uD835\uDFF5'
-                    else -> c
+                    'A' -> "𝚨"
+                    'B' -> "𝚩"
+                    'C' -> "𝚪"
+                    'D' -> "𝚫"
+                    'E' -> "𝚬"
+                    'F' -> "𝚭"
+                    'G' -> "𝚮"
+                    'H' -> "𝚯"
+                    'I' -> "𝚰"
+                    'J' -> "𝚱"
+                    'K' -> "𝚲"
+                    'L' -> "𝚳"
+                    'M' -> "𝚴"
+                    'N' -> "𝚵"
+                    'O' -> "𝚶"
+                    'P' -> "𝚷"
+                    'Q' -> "𝚸"
+                    'R' -> "𝚹"
+                    'S' -> "𝚺"
+                    'T' -> "𝚻"
+                    'U' -> "𝚼"
+                    'V' -> "𝚽"
+                    'W' -> "𝚾"
+                    'X' -> "𝚿"
+                    'Y' -> "𝛀"
+                    'Z' -> "𝛁"
+                    'a' -> "𝛂"
+                    'b' -> "𝛃"
+                    'c' -> "𝛄"
+                    'd' -> "𝛅"
+                    'e' -> "𝛆"
+                    'f' -> "𝛇"
+                    'g' -> "𝛈"
+                    'h' -> "𝛉"
+                    'i' -> "𝛊"
+                    'j' -> "𝛋"
+                    'k' -> "𝛌"
+                    'l' -> "𝛍"
+                    'm' -> "𝛎"
+                    'n' -> "𝛏"
+                    'o' -> "𝛐"
+                    'p' -> "𝛑"
+                    'q' -> "𝛒"
+                    'r' -> "𝛓"
+                    's' -> "𝛔"
+                    't' -> "𝛕"
+                    'u' -> "𝛖"
+                    'v' -> "𝛗"
+                    'w' -> "𝛘"
+                    'x' -> "𝛙"
+                    'y' -> "𝛚"
+                    'z' -> "𝛛"
+                    '0' -> "𝟬"
+                    '1' -> "𝟭"
+                    '2' -> "𝟮"
+                    '3' -> "𝟯"
+                    '4' -> "𝟰"
+                    '5' -> "𝟱"
+                    '6' -> "𝟲"
+                    '7' -> "𝟳"
+                    '8' -> "𝟴"
+                    '9' -> "𝟵"
+                    else -> c.toString()
                 }
             }.joinToString("")
-        }))
-
-        fonts.add(FontStyle("comic", "𝓒𝓸𝓶𝓲𝓬", converter = { text ->
+        }))\n        fonts.add(FontStyle("comic", "𝓒𝓸𝓶𝓲𝓬", converter = { text ->
             text.map { c ->
                 when (c) {
-                    'A' -> '\uD835\uDCF0'; 'B' -> '\uD835\uDCF1'; 'C' -> '\uD835\uDCF2'
-                    'D' -> '\uD835\uDCF3'; 'E' -> '\uD835\uDCF4'; 'F' -> '\uD835\uDCF5'
-                    'G' -> '\uD835\uDCF6'; 'H' -> '\uD835\uDCF7'; 'I' -> '\uD835\uDCF8'
-                    'J' -> '\uD835\uDCF9'; 'K' -> '\uD835\uDCFA'; 'L' -> '\uD835\uDCFB'
-                    'M' -> '\uD835\uDCFC'; 'N' -> '\uD835\uDCFD'; 'O' -> '\uD835\uDCFE'
-                    'P' -> '\uD835\uDCFF'; 'Q' -> '\uD835\uDD00'; 'R' -> '\uD835\uDD01'
-                    'S' -> '\uD835\uDD02'; 'T' -> '\uD835\uDD03'; 'U' -> '\uD835\uDD04'
-                    'V' -> '\uD835\uDD05'; 'W' -> '\uD835\uDD06'; 'X' -> '\uD835\uDD07'
-                    'Y' -> '\uD835\uDD08'; 'Z' -> '\uD835\uDD09'
-                    'a' -> '\uD835\uDD0A'; 'b' -> '\uD835\uDD0B'; 'c' -> '\uD835\uDD0C'
-                    'd' -> '\uD835\uDD0D'; 'e' -> '\uD835\uDD0E'; 'f' -> '\uD835\uDD0F'
-                    'g' -> '\uD835\uDD10'; 'h' -> '\uD835\uDD11'; 'i' -> '\uD835\uDD12'
-                    'j' -> '\uD835\uDD13'; 'k' -> '\uD835\uDD14'; 'l' -> '\uD835\uDD15'
-                    'm' -> '\uD835\uDD16'; 'n' -> '\uD835\uDD17'; 'o' -> '\uD835\uDD18'
-                    'p' -> '\uD835\uDD19'; 'q' -> '\uD835\uDD1A'; 'r' -> '\uD835\uDD1B'
-                    's' -> '\uD835\uDD1C'; 't' -> '\uD835\uDD1D'; 'u' -> '\uD835\uDD1E'
-                    'v' -> '\uD835\uDD1F'; 'w' -> '\uD835\uDD20'; 'x' -> '\uD835\uDD21'
-                    'y' -> '\uD835\uDD22'; 'z' -> '\uD835\uDD23'
-                    else -> c
+                    'A' -> "𝓰"
+                    'B' -> "𝓱"
+                    'C' -> "𝓲"
+                    'D' -> "𝓳"
+                    'E' -> "𝓴"
+                    'F' -> "𝓵"
+                    'G' -> "𝓶"
+                    'H' -> "𝓷"
+                    'I' -> "𝓸"
+                    'J' -> "𝓹"
+                    'K' -> "𝓺"
+                    'L' -> "𝓻"
+                    'M' -> "𝓼"
+                    'N' -> "𝓽"
+                    'O' -> "𝓾"
+                    'P' -> "𝓿"
+                    'Q' -> "𝔀"
+                    'R' -> "𝔁"
+                    'S' -> "𝔂"
+                    'T' -> "𝔃"
+                    'U' -> "𝔄"
+                    'V' -> "𝔅"
+                    'W' -> "𝔆"
+                    'X' -> "𝔇"
+                    'Y' -> "𝔈"
+                    'Z' -> "𝔉"
+                    'a' -> "𝔊"
+                    'b' -> "𝔋"
+                    'c' -> "𝔌"
+                    'd' -> "𝔍"
+                    'e' -> "𝔎"
+                    'f' -> "𝔏"
+                    'g' -> "𝔐"
+                    'h' -> "𝔑"
+                    'i' -> "𝔒"
+                    'j' -> "𝔓"
+                    'k' -> "𝔔"
+                    'l' -> "𝔕"
+                    'm' -> "𝔖"
+                    'n' -> "𝔗"
+                    'o' -> "𝔘"
+                    'p' -> "𝔙"
+                    'q' -> "𝔚"
+                    'r' -> "𝔛"
+                    's' -> "𝔜"
+                    't' -> "𝔝"
+                    'u' -> "𝔞"
+                    'v' -> "𝔟"
+                    'w' -> "𝔠"
+                    'x' -> "𝔡"
+                    'y' -> "𝔢"
+                    'z' -> "𝔣"
+                    else -> c.toString()
                 }
             }.joinToString("")
-        }))
-
-        fonts.add(FontStyle("script", "𝒮𝒸𝓇𝒾𝓅𝓉", converter = { text ->
+        }))\n        fonts.add(FontStyle("script", "𝒮𝒸𝓇𝒾𝓅𝓉", converter = { text ->
             text.map { c ->
                 when (c) {
-                    'A' -> '\uD835\uDC9C'; 'B' -> '\uD835\uDCB5'; 'C' -> '\uD835\uDC9E'
-                    'D' -> '\uD835\uDC9F'; 'E' -> '\uD835\uDCB7'; 'F' -> '\uD835\uDCB8'
-                    'G' -> '\uD835\uDCA2'; 'H' -> '\uD835\uDCB9'; 'I' -> '\uD835\uDCA4'
-                    'J' -> '\uD835\uDCA5'; 'K' -> '\uD835\uDCA6'; 'L' -> '\uD835\uDCBA'
-                    'M' -> '\uD835\uDCBB'; 'N' -> '\uD835\uDCA9'; 'O' -> '\uD835\uDCAA'
-                    'P' -> '\uD835\uDCAB'; 'Q' -> '\uD835\uDCAC'; 'R' -> '\uD835\uDCAD'
-                    'S' -> '\uD835\uDCAE'; 'T' -> '\uD835\uDCAF'; 'U' -> '\uD835\uDCB0'
-                    'V' -> '\uD835\uDCB1'; 'W' -> '\uD835\uDCB2'; 'X' -> '\uD835\uDCB3'
-                    'Y' -> '\uD835\uDCB4'; 'Z' -> '\uD835\uDCB5'
-                    'a' -> '\uD835\uDCB6'; 'b' -> '\uD835\uDCB7'; 'c' -> '\uD835\uDCB8'
-                    'd' -> '\uD835\uDCB9'; 'e' -> '\uD835\uDCF0'; 'f' -> '\uD835\uDCBB'
-                    'g' -> '\uD835\uDCF2'; 'h' -> '\uD835\uDCBD'; 'i' -> '\uD835\uDCBE'
-                    'j' -> '\uD835\uDCBF'; 'k' -> '\uD835\uDCC0'; 'l' -> '\uD835\uDCC1'
-                    'm' -> '\uD835\uDCC2'; 'n' -> '\uD835\uDCC3'; 'o' -> '\uD835\uDCC4'
-                    'p' -> '\uD835\uDCC5'; 'q' -> '\uD835\uDCC6'; 'r' -> '\uD835\uDCC7'
-                    's' -> '\uD835\uDCC8'; 't' -> '\uD835\uDCC9'; 'u' -> '\uD835\uDCCA'
-                    'v' -> '\uD835\uDCCB'; 'w' -> '\uD835\uDCCC'; 'x' -> '\uD835\uDCCD'
-                    'y' -> '\uD835\uDCCE'; 'z' -> '\uD835\uDCCF'
-                    else -> c
+                    'A' -> "𝒜"
+                    'B' -> "𝒵"
+                    'C' -> "𝒞"
+                    'D' -> "𝒟"
+                    'E' -> "𝒷"
+                    'F' -> "𝒸"
+                    'G' -> "𝒢"
+                    'H' -> "𝒹"
+                    'I' -> "𝒤"
+                    'J' -> "𝒥"
+                    'K' -> "𝒦"
+                    'L' -> "𝒺"
+                    'M' -> "𝒻"
+                    'N' -> "𝒩"
+                    'O' -> "𝒪"
+                    'P' -> "𝒫"
+                    'Q' -> "𝒬"
+                    'R' -> "𝒭"
+                    'S' -> "𝒮"
+                    'T' -> "𝒯"
+                    'U' -> "𝒰"
+                    'V' -> "𝒱"
+                    'W' -> "𝒲"
+                    'X' -> "𝒳"
+                    'Y' -> "𝒴"
+                    'Z' -> "𝒵"
+                    'a' -> "𝒶"
+                    'b' -> "𝒷"
+                    'c' -> "𝒸"
+                    'd' -> "𝒹"
+                    'e' -> "𝓰"
+                    'f' -> "𝒻"
+                    'g' -> "𝓲"
+                    'h' -> "𝒽"
+                    'i' -> "𝒾"
+                    'j' -> "𝒿"
+                    'k' -> "𝓀"
+                    'l' -> "𝓁"
+                    'm' -> "𝓂"
+                    'n' -> "𝓃"
+                    'o' -> "𝓄"
+                    'p' -> "𝓅"
+                    'q' -> "𝓆"
+                    'r' -> "𝓇"
+                    's' -> "𝓈"
+                    't' -> "𝓉"
+                    'u' -> "𝓊"
+                    'v' -> "𝓋"
+                    'w' -> "𝓌"
+                    'x' -> "𝓍"
+                    'y' -> "𝓎"
+                    'z' -> "𝓏"
+                    else -> c.toString()
                 }
             }.joinToString("")
-        }))
-
-        fonts.add(FontStyle("serif_bold", "𝐒𝐞𝐫𝐢𝐟 𝐁𝐨𝐥𝐝", converter = { text ->
+        }))\n        fonts.add(FontStyle("serif_bold", "𝐒𝐞𝐫𝐢𝐟 𝐁𝐨𝐥𝐝", converter = { text ->
             text.map { c ->
                 when (c) {
-                    'A' -> '\uD835\uDC00'; 'B' -> '\uD835\uDC01'; 'C' -> '\uD835\uDC02'
-                    'D' -> '\uD835\uDC03'; 'E' -> '\uD835\uDC04'; 'F' -> '\uD835\uDC05'
-                    'G' -> '\uD835\uDC06'; 'H' -> '\uD835\uDC07'; 'I' -> '\uD835\uDC08'
-                    'J' -> '\uD835\uDC09'; 'K' -> '\uD835\uDC0A'; 'L' -> '\uD835\uDC0B'
-                    'M' -> '\uD835\uDC0C'; 'N' -> '\uD835\uDC0D'; 'O' -> '\uD835\uDC0E'
-                    'P' -> '\uD835\uDC0F'; 'Q' -> '\uD835\uDC10'; 'R' -> '\uD835\uDC11'
-                    'S' -> '\uD835\uDC12'; 'T' -> '\uD835\uDC13'; 'U' -> '\uD835\uDC14'
-                    'V' -> '\uD835\uDC15'; 'W' -> '\uD835\uDC16'; 'X' -> '\uD835\uDC17'
-                    'Y' -> '\uD835\uDC18'; 'Z' -> '\uD835\uDC19'
-                    'a' -> '\uD835\uDC1A'; 'b' -> '\uD835\uDC1B'; 'c' -> '\uD835\uDC1C'
-                    'd' -> '\uD835\uDC1D'; 'e' -> '\uD835\uDC1E'; 'f' -> '\uD835\uDC1F'
-                    'g' -> '\uD835\uDC20'; 'h' -> '\uD835\uDC21'; 'i' -> '\uD835\uDC22'
-                    'j' -> '\uD835\uDC23'; 'k' -> '\uD835\uDC24'; 'l' -> '\uD835\uDC25'
-                    'm' -> '\uD835\uDC26'; 'n' -> '\uD835\uDC27'; 'o' -> '\uD835\uDC28'
-                    'p' -> '\uD835\uDC29'; 'q' -> '\uD835\uDC2A'; 'r' -> '\uD835\uDC2B'
-                    's' -> '\uD835\uDC2C'; 't' -> '\uD835\uDC2D'; 'u' -> '\uD835\uDC2E'
-                    'v' -> '\uD835\uDC2F'; 'w' -> '\uD835\uDC30'; 'x' -> '\uD835\uDC31'
-                    'y' -> '\uD835\uDC32'; 'z' -> '\uD835\uDC33'
-                    '0' -> '\uD835\uDFCE'; '1' -> '\uD835\uDFCF'; '2' -> '\uD835\uDFD0'
-                    '3' -> '\uD835\uDFD1'; '4' -> '\uD835\uDFD2'; '5' -> '\uD835\uDFD3'
-                    '6' -> '\uD835\uDFD4'; '7' -> '\uD835\uDFD5'; '8' -> '\uD835\uDFD6'
-                    '9' -> '\uD835\uDFD7'
-                    else -> c
+                    'A' -> "𝐀"
+                    'B' -> "𝐁"
+                    'C' -> "𝐂"
+                    'D' -> "𝐃"
+                    'E' -> "𝐄"
+                    'F' -> "𝐅"
+                    'G' -> "𝐆"
+                    'H' -> "𝐇"
+                    'I' -> "𝐈"
+                    'J' -> "𝐉"
+                    'K' -> "𝐊"
+                    'L' -> "𝐋"
+                    'M' -> "𝐌"
+                    'N' -> "𝐍"
+                    'O' -> "𝐎"
+                    'P' -> "𝐏"
+                    'Q' -> "𝐐"
+                    'R' -> "𝐑"
+                    'S' -> "𝐒"
+                    'T' -> "𝐓"
+                    'U' -> "𝐔"
+                    'V' -> "𝐕"
+                    'W' -> "𝐖"
+                    'X' -> "𝐗"
+                    'Y' -> "𝐘"
+                    'Z' -> "𝐙"
+                    'a' -> "𝐚"
+                    'b' -> "𝐛"
+                    'c' -> "𝐜"
+                    'd' -> "𝐝"
+                    'e' -> "𝐞"
+                    'f' -> "𝐟"
+                    'g' -> "𝐠"
+                    'h' -> "𝐡"
+                    'i' -> "𝐢"
+                    'j' -> "𝐣"
+                    'k' -> "𝐤"
+                    'l' -> "𝐥"
+                    'm' -> "𝐦"
+                    'n' -> "𝐧"
+                    'o' -> "𝐨"
+                    'p' -> "𝐩"
+                    'q' -> "𝐪"
+                    'r' -> "𝐫"
+                    's' -> "𝐬"
+                    't' -> "𝐭"
+                    'u' -> "𝐮"
+                    'v' -> "𝐯"
+                    'w' -> "𝐰"
+                    'x' -> "𝐱"
+                    'y' -> "𝐲"
+                    'z' -> "𝐳"
+                    '0' -> "𝟎"
+                    '1' -> "𝟏"
+                    '2' -> "𝟐"
+                    '3' -> "𝟑"
+                    '4' -> "𝟒"
+                    '5' -> "𝟓"
+                    '6' -> "𝟔"
+                    '7' -> "𝟕"
+                    '8' -> "𝟖"
+                    '9' -> "𝟗"
+                    else -> c.toString()
                 }
             }.joinToString("")
-        }))
-
-        fonts.add(FontStyle("sans_bold", "𝗦𝗮𝗻𝘀 𝗕𝗼𝗹𝗱", converter = { text ->
+        }))\n        fonts.add(FontStyle("sans_bold", "𝗦𝗮𝗻𝘀 𝗕𝗼𝗹𝗱", converter = { text ->
             text.map { c ->
                 when (c) {
-                    'A' -> '\uD835\uDDB4'; 'B' -> '\uD835\uDDB5'; 'C' -> '\uD835\uDDB6'
-                    'D' -> '\uD835\uDDB7'; 'E' -> '\uD835\uDDB8'; 'F' -> '\uD835\uDDB9'
-                    'G' -> '\uD835\uDDBA'; 'H' -> '\uD835\uDDBB'; 'I' -> '\uD835\uDDBC'
-                    'J' -> '\uD835\uDDBD'; 'K' -> '\uD835\uDDBE'; 'L' -> '\uD835\uDDBF'
-                    'M' -> '\uD835\uDDC0'; 'N' -> '\uD835\uDDC1'; 'O' -> '\uD835\uDDC2'
-                    'P' -> '\uD835\uDDC3'; 'Q' -> '\uD835\uDDC4'; 'R' -> '\uD835\uDDC5'
-                    'S' -> '\uD835\uDDC6'; 'T' -> '\uD835\uDDC7'; 'U' -> '\uD835\uDDC8'
-                    'V' -> '\uD835\uDDC9'; 'W' -> '\uD835\uDDCA'; 'X' -> '\uD835\uDDCB'
-                    'Y' -> '\uD835\uDDCC'; 'Z' -> '\uD835\uDDCD'
-                    'a' -> '\uD835\uDDCE'; 'b' -> '\uD835\uDDCF'; 'c' -> '\uD835\uDDD0'
-                    'd' -> '\uD835\uDDD1'; 'e' -> '\uD835\uDDD2'; 'f' -> '\uD835\uDDD3'
-                    'g' -> '\uD835\uDDD4'; 'h' -> '\uD835\uDDD5'; 'i' -> '\uD835\uDDD6'
-                    'j' -> '\uD835\uDDD7'; 'k' -> '\uD835\uDDD8'; 'l' -> '\uD835\uDDD9'
-                    'm' -> '\uD835\uDDDA'; 'n' -> '\uD835\uDDDB'; 'o' -> '\uD835\uDDDC'
-                    'p' -> '\uD835\uDDDD'; 'q' -> '\uD835\uDDDE'; 'r' -> '\uD835\uDDDF'
-                    's' -> '\uD835\uDDE0'; 't' -> '\uD835\uDDE1'; 'u' -> '\uD835\uDDE2'
-                    'v' -> '\uD835\uDDE3'; 'w' -> '\uD835\uDDE4'; 'x' -> '\uD835\uDDE5'
-                    'y' -> '\uD835\uDDE6'; 'z' -> '\uD835\uDDE7'
-                    '0' -> '\uD835\uDFF6'; '1' -> '\uD835\uDFF7'; '2' -> '\uD835\uDFF8'
-                    '3' -> '\uD835\uDFF9'; '4' -> '\uD835\uDFFA'; '5' -> '\uD835\uDFFB'
-                    '6' -> '\uD835\uDFFC'; '7' -> '\uD835\uDFFD'; '8' -> '\uD835\uDFFE'
-                    '9' -> '\uD835\uDFFF'
-                    else -> c
+                    'A' -> "𝖴"
+                    'B' -> "𝖵"
+                    'C' -> "𝖶"
+                    'D' -> "𝖷"
+                    'E' -> "𝖸"
+                    'F' -> "𝖹"
+                    'G' -> "𝖺"
+                    'H' -> "𝖻"
+                    'I' -> "𝖼"
+                    'J' -> "𝖽"
+                    'K' -> "𝖾"
+                    'L' -> "𝖿"
+                    'M' -> "𝗀"
+                    'N' -> "𝗁"
+                    'O' -> "𝗂"
+                    'P' -> "𝗃"
+                    'Q' -> "𝗄"
+                    'R' -> "𝗅"
+                    'S' -> "𝗆"
+                    'T' -> "𝗇"
+                    'U' -> "𝗈"
+                    'V' -> "𝗉"
+                    'W' -> "𝗊"
+                    'X' -> "𝗋"
+                    'Y' -> "𝗌"
+                    'Z' -> "𝗍"
+                    'a' -> "𝗎"
+                    'b' -> "𝗏"
+                    'c' -> "𝗐"
+                    'd' -> "𝗑"
+                    'e' -> "𝗒"
+                    'f' -> "𝗓"
+                    'g' -> "𝗔"
+                    'h' -> "𝗕"
+                    'i' -> "𝗖"
+                    'j' -> "𝗗"
+                    'k' -> "𝗘"
+                    'l' -> "𝗙"
+                    'm' -> "𝗚"
+                    'n' -> "𝗛"
+                    'o' -> "𝗜"
+                    'p' -> "𝗝"
+                    'q' -> "𝗞"
+                    'r' -> "𝗟"
+                    's' -> "𝗠"
+                    't' -> "𝗡"
+                    'u' -> "𝗢"
+                    'v' -> "𝗣"
+                    'w' -> "𝗤"
+                    'x' -> "𝗥"
+                    'y' -> "𝗦"
+                    'z' -> "𝗧"
+                    '0' -> "𝟶"
+                    '1' -> "𝟷"
+                    '2' -> "𝟸"
+                    '3' -> "𝟹"
+                    '4' -> "𝟺"
+                    '5' -> "𝟻"
+                    '6' -> "𝟼"
+                    '7' -> "𝟽"
+                    '8' -> "𝟾"
+                    '9' -> "𝟿"
+                    else -> c.toString()
+                }
+            }.joinToString("")
+        }))\n        fonts.add(FontStyle("double_struck", "𝔻𝕠𝕦𝕓𝕝𝕖", converter = { text ->
+            text.map { c ->
+                when (c) {
+                    'A' -> "𝔸"
+                    'B' -> "𝔹"
+                    'C' -> "ℂ"
+                    'D' -> "𝔻"
+                    'E' -> "𝔼"
+                    'F' -> "𝔽"
+                    'G' -> "𝔾"
+                    'H' -> "ℍ"
+                    'I' -> "𝕀"
+                    'J' -> "𝕁"
+                    'K' -> "𝕂"
+                    'L' -> "𝕃"
+                    'M' -> "𝕄"
+                    'N' -> "ℕ"
+                    'O' -> "𝕆"
+                    'P' -> "ℙ"
+                    'Q' -> "ℚ"
+                    'R' -> "ℝ"
+                    'S' -> "𝕊"
+                    'T' -> "𝕋"
+                    'U' -> "𝕌"
+                    'V' -> "𝕍"
+                    'W' -> "𝕎"
+                    'X' -> "𝕏"
+                    'Y' -> "𝕐"
+                    'Z' -> "ℤ"
+                    'a' -> "𝕒"
+                    'b' -> "𝕓"
+                    'c' -> "𝕔"
+                    'd' -> "𝕕"
+                    'e' -> "𝕖"
+                    'f' -> "𝕗"
+                    'g' -> "𝕘"
+                    'h' -> "𝕙"
+                    'i' -> "𝕚"
+                    'j' -> "𝕛"
+                    'k' -> "𝕜"
+                    'l' -> "𝕝"
+                    'm' -> "𝕞"
+                    'n' -> "𝕟"
+                    'o' -> "𝕠"
+                    'p' -> "𝕡"
+                    'q' -> "𝕢"
+                    'r' -> "𝕣"
+                    's' -> "𝕤"
+                    't' -> "𝕥"
+                    'u' -> "𝕦"
+                    'v' -> "𝕧"
+                    'w' -> "𝕨"
+                    'x' -> "𝕩"
+                    'y' -> "𝕪"
+                    'z' -> "𝕫"
+                    '0' -> "𝟘"
+                    '1' -> "𝟙"
+                    '2' -> "𝟚"
+                    '3' -> "𝟛"
+                    '4' -> "𝟜"
+                    '5' -> "𝟝"
+                    '6' -> "𝟞"
+                    '7' -> "𝟟"
+                    '8' -> "𝟠"
+                    '9' -> "𝟡"
+                    else -> c.toString()
+                }
+            }.joinToString("")
+        }))\n        fonts.add(FontStyle("italic_bold", "𝑰𝒕𝒂𝒍𝒊𝒄", converter = { text ->
+            text.map { c ->
+                when (c) {
+                    'A' -> "𝑨"
+                    'B' -> "𝑩"
+                    'C' -> "𝑪"
+                    'D' -> "𝑫"
+                    'E' -> "𝑬"
+                    'F' -> "𝑭"
+                    'G' -> "𝑮"
+                    'H' -> "𝑯"
+                    'I' -> "𝑰"
+                    'J' -> "𝑱"
+                    'K' -> "𝑲"
+                    'L' -> "𝑳"
+                    'M' -> "𝑴"
+                    'N' -> "𝑵"
+                    'O' -> "𝑶"
+                    'P' -> "𝑷"
+                    'Q' -> "𝑸"
+                    'R' -> "𝑹"
+                    'S' -> "𝑺"
+                    'T' -> "𝑻"
+                    'U' -> "𝑼"
+                    'V' -> "𝑽"
+                    'W' -> "𝑾"
+                    'X' -> "𝑿"
+                    'Y' -> "𝒀"
+                    'Z' -> "𝒁"
+                    'a' -> "𝒂"
+                    'b' -> "𝒃"
+                    'c' -> "𝒄"
+                    'd' -> "𝒅"
+                    'e' -> "𝒆"
+                    'f' -> "𝒇"
+                    'g' -> "𝒈"
+                    'h' -> "𝒉"
+                    'i' -> "𝒊"
+                    'j' -> "𝒋"
+                    'k' -> "𝒌"
+                    'l' -> "𝒍"
+                    'm' -> "𝒎"
+                    'n' -> "𝒏"
+                    'o' -> "𝒐"
+                    'p' -> "𝒑"
+                    'q' -> "𝒒"
+                    'r' -> "𝒓"
+                    's' -> "𝒔"
+                    't' -> "𝒕"
+                    'u' -> "𝒖"
+                    'v' -> "𝒗"
+                    'w' -> "𝒘"
+                    'x' -> "𝒙"
+                    'y' -> "𝒚"
+                    'z' -> "𝒛"
+                    else -> c.toString()
+                }
+            }.joinToString("")
+        }))\n        fonts.add(FontStyle("italic_sans", "𝘪𝘵𝘢𝘭𝘪𝘤 𝘴𝘢𝘯𝘴", converter = { text ->
+            text.map { c ->
+                when (c) {
+                    'A' -> "𝘈"
+                    'B' -> "𝘉"
+                    'C' -> "𝘊"
+                    'D' -> "𝘋"
+                    'E' -> "𝘌"
+                    'F' -> "𝘍"
+                    'G' -> "𝘎"
+                    'H' -> "𝘏"
+                    'I' -> "𝘐"
+                    'J' -> "𝘑"
+                    'K' -> "𝘒"
+                    'L' -> "𝘓"
+                    'M' -> "𝘔"
+                    'N' -> "𝘕"
+                    'O' -> "𝘖"
+                    'P' -> "𝘗"
+                    'Q' -> "𝘘"
+                    'R' -> "𝘙"
+                    'S' -> "𝘚"
+                    'T' -> "𝘛"
+                    'U' -> "𝘜"
+                    'V' -> "𝘝"
+                    'W' -> "𝘞"
+                    'X' -> "𝘟"
+                    'Y' -> "𝘠"
+                    'Z' -> "𝘡"
+                    'a' -> "𝘢"
+                    'b' -> "𝘣"
+                    'c' -> "𝘤"
+                    'd' -> "𝘥"
+                    'e' -> "𝘦"
+                    'f' -> "𝘧"
+                    'g' -> "𝘨"
+                    'h' -> "𝘩"
+                    'i' -> "𝘪"
+                    'j' -> "𝘫"
+                    'k' -> "𝘬"
+                    'l' -> "𝘭"
+                    'm' -> "𝘮"
+                    'n' -> "𝘯"
+                    'o' -> "𝘰"
+                    'p' -> "𝘱"
+                    'q' -> "𝘲"
+                    'r' -> "𝘳"
+                    's' -> "𝘴"
+                    't' -> "𝘵"
+                    'u' -> "𝘶"
+                    'v' -> "𝘷"
+                    'w' -> "𝘸"
+                    'x' -> "𝘹"
+                    'y' -> "𝘺"
+                    'z' -> "𝘻"
+                    else -> c.toString()
+                }
+            }.joinToString("")
+        }))\n        fonts.add(FontStyle("bold_fraktur", "𝕱𝖗𝖆𝖐𝖙𝖚𝖗", converter = { text ->
+            text.map { c ->
+                when (c) {
+                    'A' -> "𝕬"
+                    'B' -> "𝕭"
+                    'C' -> "𝕮"
+                    'D' -> "𝕯"
+                    'E' -> "𝕰"
+                    'F' -> "𝕱"
+                    'G' -> "𝕲"
+                    'H' -> "𝕳"
+                    'I' -> "𝕴"
+                    'J' -> "𝕵"
+                    'K' -> "𝕶"
+                    'L' -> "𝕷"
+                    'M' -> "𝕸"
+                    'N' -> "𝕹"
+                    'O' -> "𝕺"
+                    'P' -> "𝕻"
+                    'Q' -> "𝕼"
+                    'R' -> "𝕽"
+                    'S' -> "𝕾"
+                    'T' -> "𝕿"
+                    'U' -> "𝖀"
+                    'V' -> "𝖁"
+                    'W' -> "𝖂"
+                    'X' -> "𝖃"
+                    'Y' -> "𝖄"
+                    'Z' -> "𝖅"
+                    'a' -> "𝖆"
+                    'b' -> "𝖇"
+                    'c' -> "𝖈"
+                    'd' -> "𝖉"
+                    'e' -> "𝖊"
+                    'f' -> "𝖋"
+                    'g' -> "𝖌"
+                    'h' -> "𝖍"
+                    'i' -> "𝖎"
+                    'j' -> "𝖏"
+                    'k' -> "𝖐"
+                    'l' -> "𝖑"
+                    'm' -> "𝖒"
+                    'n' -> "𝖓"
+                    'o' -> "𝖔"
+                    'p' -> "𝖕"
+                    'q' -> "𝖖"
+                    'r' -> "𝖗"
+                    's' -> "𝖘"
+                    't' -> "𝖙"
+                    'u' -> "𝖚"
+                    'v' -> "𝖛"
+                    'w' -> "𝖜"
+                    'x' -> "𝖝"
+                    'y' -> "𝖞"
+                    'z' -> "𝖟"
+                    else -> c.toString()
+                }
+            }.joinToString("")
+        }))\n        fonts.add(FontStyle("monospace_unicode", "𝚖𝚘𝚗𝚘𝚜𝚙𝚊𝚌𝚎", converter = { text ->
+            text.map { c ->
+                when (c) {
+                    'A' -> "𝚨"
+                    'B' -> "𝚩"
+                    'C' -> "𝚪"
+                    'D' -> "𝚫"
+                    'E' -> "𝚬"
+                    'F' -> "𝚭"
+                    'G' -> "𝚮"
+                    'H' -> "𝚯"
+                    'I' -> "𝚰"
+                    'J' -> "𝚱"
+                    'K' -> "𝚲"
+                    'L' -> "𝚳"
+                    'M' -> "𝚴"
+                    'N' -> "𝚵"
+                    'O' -> "𝚶"
+                    'P' -> "𝚷"
+                    'Q' -> "𝚸"
+                    'R' -> "𝚹"
+                    'S' -> "𝚺"
+                    'T' -> "𝚻"
+                    'U' -> "𝚼"
+                    'V' -> "𝚽"
+                    'W' -> "𝚾"
+                    'X' -> "𝚿"
+                    'Y' -> "𝛀"
+                    'Z' -> "𝛁"
+                    'a' -> "𝛂"
+                    'b' -> "𝛃"
+                    'c' -> "𝛄"
+                    'd' -> "𝛅"
+                    'e' -> "𝛆"
+                    'f' -> "𝛇"
+                    'g' -> "𝛈"
+                    'h' -> "𝛉"
+                    'i' -> "𝛊"
+                    'j' -> "𝛋"
+                    'k' -> "𝛌"
+                    'l' -> "𝛍"
+                    'm' -> "𝛎"
+                    'n' -> "𝛏"
+                    'o' -> "𝛐"
+                    'p' -> "𝛑"
+                    'q' -> "𝛒"
+                    'r' -> "𝛓"
+                    's' -> "𝛔"
+                    't' -> "𝛕"
+                    'u' -> "𝛖"
+                    'v' -> "𝛗"
+                    'w' -> "𝛘"
+                    'x' -> "𝛙"
+                    'y' -> "𝛚"
+                    'z' -> "𝛛"
+                    '0' -> "𝟬"
+                    '1' -> "𝟭"
+                    '2' -> "𝟮"
+                    '3' -> "𝟯"
+                    '4' -> "𝟰"
+                    '5' -> "𝟱"
+                    '6' -> "𝟲"
+                    '7' -> "𝟳"
+                    '8' -> "𝟴"
+                    '9' -> "𝟵"
+                    else -> c.toString()
                 }
             }.joinToString("")
         }))
@@ -342,39 +864,9 @@ object FontManager {
                 '4' to '\u218C', '5' to '\u218D', '6' to '9', '7' to '\u218E',
                 '8' to '8', '9' to '6',
                 '.' to '\u02D9', ',' to '\u2018', '?' to '\u00BF', '!' to '\u00A1',
-                '\"' to '\u201E', '\'' to ',', '&' to '\u214B'
+                '"' to '\u201E', '\'' to ',', '&' to '\u214B'
             )
             text.reversed().map { map[it] ?: it }.joinToString("")
-        }))
-
-        fonts.add(FontStyle("double_struck", "𝔻𝕠𝕦𝕓𝕝𝕖", converter = { text ->
-            text.map { c ->
-                when (c) {
-                    'A' -> '\uD835\uDD38'; 'B' -> '\uD835\uDD39'; 'C' -> '\u2102'
-                    'D' -> '\uD835\uDD3B'; 'E' -> '\uD835\uDD3C'; 'F' -> '\uD835\uDD3D'
-                    'G' -> '\uD835\uDD3E'; 'H' -> '\u210D'; 'I' -> '\uD835\uDD40'
-                    'J' -> '\uD835\uDD41'; 'K' -> '\uD835\uDD42'; 'L' -> '\uD835\uDD43'
-                    'M' -> '\uD835\uDD44'; 'N' -> '\u2115'; 'O' -> '\uD835\uDD46'
-                    'P' -> '\u2119'; 'Q' -> '\u211A'; 'R' -> '\u211D'
-                    'S' -> '\uD835\uDD4A'; 'T' -> '\uD835\uDD4B'; 'U' -> '\uD835\uDD4C'
-                    'V' -> '\uD835\uDD4D'; 'W' -> '\uD835\uDD4E'; 'X' -> '\uD835\uDD4F'
-                    'Y' -> '\uD835\uDD50'; 'Z' -> '\u2124'
-                    'a' -> '\uD835\uDD52'; 'b' -> '\uD835\uDD53'; 'c' -> '\uD835\uDD54'
-                    'd' -> '\uD835\uDD55'; 'e' -> '\uD835\uDD56'; 'f' -> '\uD835\uDD57'
-                    'g' -> '\uD835\uDD58'; 'h' -> '\uD835\uDD59'; 'i' -> '\uD835\uDD5A'
-                    'j' -> '\uD835\uDD5B'; 'k' -> '\uD835\uDD5C'; 'l' -> '\uD835\uDD5D'
-                    'm' -> '\uD835\uDD5E'; 'n' -> '\uD835\uDD5F'; 'o' -> '\uD835\uDD60'
-                    'p' -> '\uD835\uDD61'; 'q' -> '\uD835\uDD62'; 'r' -> '\uD835\uDD63'
-                    's' -> '\uD835\uDD64'; 't' -> '\uD835\uDD65'; 'u' -> '\uD835\uDD66'
-                    'v' -> '\uD835\uDD67'; 'w' -> '\uD835\uDD68'; 'x' -> '\uD835\uDD69'
-                    'y' -> '\uD835\uDD6A'; 'z' -> '\uD835\uDD6B'
-                    '0' -> '\uD835\uDFD8'; '1' -> '\uD835\uDFD9'; '2' -> '\uD835\uDFDA'
-                    '3' -> '\uD835\uDFDB'; '4' -> '\uD835\uDFDC'; '5' -> '\uD835\uDFDD'
-                    '6' -> '\uD835\uDFDE'; '7' -> '\uD835\uDFDF'; '8' -> '\uD835\uDFE0'
-                    '9' -> '\uD835\uDFE1'
-                    else -> c
-                }
-            }.joinToString("")
         }))
 
         fonts.add(FontStyle("small_caps", "Sᴍᴀʟʟ Cᴀᴘs", converter = { text ->
@@ -429,36 +921,6 @@ object FontManager {
                 when {
                     c in '!'..'~' -> (c.code + 0xFEE0).toChar()
                     c == ' ' -> '\u3000'
-                    else -> c
-                }
-            }.joinToString("")
-        }))
-
-        fonts.add(FontStyle("monospace_unicode", "𝚖𝚘𝚗𝚘𝚜𝚙𝚊𝚌𝚎", converter = { text ->
-            text.map { c ->
-                when (c) {
-                    'A' -> '\uD835\uDEA8'; 'B' -> '\uD835\uDEA9'; 'C' -> '\uD835\uDEAA'
-                    'D' -> '\uD835\uDEAB'; 'E' -> '\uD835\uDEAC'; 'F' -> '\uD835\uDEAD'
-                    'G' -> '\uD835\uDEAE'; 'H' -> '\uD835\uDEAF'; 'I' -> '\uD835\uDEB0'
-                    'J' -> '\uD835\uDEB1'; 'K' -> '\uD835\uDEB2'; 'L' -> '\uD835\uDEB3'
-                    'M' -> '\uD835\uDEB4'; 'N' -> '\uD835\uDEB5'; 'O' -> '\uD835\uDEB6'
-                    'P' -> '\uD835\uDEB7'; 'Q' -> '\uD835\uDEB8'; 'R' -> '\uD835\uDEB9'
-                    'S' -> '\uD835\uDEBA'; 'T' -> '\uD835\uDEBB'; 'U' -> '\uD835\uDEBC'
-                    'V' -> '\uD835\uDEBD'; 'W' -> '\uD835\uDEBE'; 'X' -> '\uD835\uDEBF'
-                    'Y' -> '\uD835\uDEC0'; 'Z' -> '\uD835\uDEC1'
-                    'a' -> '\uD835\uDEC2'; 'b' -> '\uD835\uDEC3'; 'c' -> '\uD835\uDEC4'
-                    'd' -> '\uD835\uDEC5'; 'e' -> '\uD835\uDEC6'; 'f' -> '\uD835\uDEC7'
-                    'g' -> '\uD835\uDEC8'; 'h' -> '\uD835\uDEC9'; 'i' -> '\uD835\uDECA'
-                    'j' -> '\uD835\uDECB'; 'k' -> '\uD835\uDECC'; 'l' -> '\uD835\uDECD'
-                    'm' -> '\uD835\uDECE'; 'n' -> '\uD835\uDECF'; 'o' -> '\uD835\uDED0'
-                    'p' -> '\uD835\uDED1'; 'q' -> '\uD835\uDED2'; 'r' -> '\uD835\uDED3'
-                    's' -> '\uD835\uDED4'; 't' -> '\uD835\uDED5'; 'u' -> '\uD835\uDED6'
-                    'v' -> '\uD835\uDED7'; 'w' -> '\uD835\uDED8'; 'x' -> '\uD835\uDED9'
-                    'y' -> '\uD835\uDEDA'; 'z' -> '\uD835\uDEDB'
-                    '0' -> '\uD835\uDFEC'; '1' -> '\uD835\uDFED'; '2' -> '\uD835\uDFEE'
-                    '3' -> '\uD835\uDFEF'; '4' -> '\uD835\uDFF0'; '5' -> '\uD835\uDFF1'
-                    '6' -> '\uD835\uDFF2'; '7' -> '\uD835\uDFF3'; '8' -> '\uD835\uDFF4'
-                    '9' -> '\uD835\uDFF5'
                     else -> c
                 }
             }.joinToString("")
@@ -619,84 +1081,6 @@ object FontManager {
 
         fonts.add(FontStyle("star_join", "S̼t̼a̼r̼", converter = { text ->
             text.map { "$it\u033C" }.joinToString("")
-        }))
-
-        fonts.add(FontStyle("italic_bold", "𝑰𝒕𝒂𝒍𝒊𝒄", converter = { text ->
-            text.map { c ->
-                when (c) {
-                    'A' -> '\uD835\uDC68'; 'B' -> '\uD835\uDC69'; 'C' -> '\uD835\uDC6A'
-                    'D' -> '\uD835\uDC6B'; 'E' -> '\uD835\uDC6C'; 'F' -> '\uD835\uDC6D'
-                    'G' -> '\uD835\uDC6E'; 'H' -> '\uD835\uDC6F'; 'I' -> '\uD835\uDC70'
-                    'J' -> '\uD835\uDC71'; 'K' -> '\uD835\uDC72'; 'L' -> '\uD835\uDC73'
-                    'M' -> '\uD835\uDC74'; 'N' -> '\uD835\uDC75'; 'O' -> '\uD835\uDC76'
-                    'P' -> '\uD835\uDC77'; 'Q' -> '\uD835\uDC78'; 'R' -> '\uD835\uDC79'
-                    'S' -> '\uD835\uDC7A'; 'T' -> '\uD835\uDC7B'; 'U' -> '\uD835\uDC7C'
-                    'V' -> '\uD835\uDC7D'; 'W' -> '\uD835\uDC7E'; 'X' -> '\uD835\uDC7F'
-                    'Y' -> '\uD835\uDC80'; 'Z' -> '\uD835\uDC81'
-                    'a' -> '\uD835\uDC82'; 'b' -> '\uD835\uDC83'; 'c' -> '\uD835\uDC84'
-                    'd' -> '\uD835\uDC85'; 'e' -> '\uD835\uDC86'; 'f' -> '\uD835\uDC87'
-                    'g' -> '\uD835\uDC88'; 'h' -> '\uD835\uDC89'; 'i' -> '\uD835\uDC8A'
-                    'j' -> '\uD835\uDC8B'; 'k' -> '\uD835\uDC8C'; 'l' -> '\uD835\uDC8D'
-                    'm' -> '\uD835\uDC8E'; 'n' -> '\uD835\uDC8F'; 'o' -> '\uD835\uDC90'
-                    'p' -> '\uD835\uDC91'; 'q' -> '\uD835\uDC92'; 'r' -> '\uD835\uDC93'
-                    's' -> '\uD835\uDC94'; 't' -> '\uD835\uDC95'; 'u' -> '\uD835\uDC96'
-                    'v' -> '\uD835\uDC97'; 'w' -> '\uD835\uDC98'; 'x' -> '\uD835\uDC99'
-                    'y' -> '\uD835\uDC9A'; 'z' -> '\uD835\uDC9B'
-                    else -> c
-                }
-            }.joinToString("")
-        }))
-
-        fonts.add(FontStyle("italic_sans", "𝘪𝘵𝘢𝘭𝘪𝘤 𝘴𝘢𝘯𝘴", converter = { text ->
-            text.map { c ->
-                when (c) {
-                    'A' -> '\uD835\uDE08'; 'B' -> '\uD835\uDE09'; 'C' -> '\uD835\uDE0A'
-                    'D' -> '\uD835\uDE0B'; 'E' -> '\uD835\uDE0C'; 'F' -> '\uD835\uDE0D'
-                    'G' -> '\uD835\uDE0E'; 'H' -> '\uD835\uDE0F'; 'I' -> '\uD835\uDE10'
-                    'J' -> '\uD835\uDE11'; 'K' -> '\uD835\uDE12'; 'L' -> '\uD835\uDE13'
-                    'M' -> '\uD835\uDE14'; 'N' -> '\uD835\uDE15'; 'O' -> '\uD835\uDE16'
-                    'P' -> '\uD835\uDE17'; 'Q' -> '\uD835\uDE18'; 'R' -> '\uD835\uDE19'
-                    'S' -> '\uD835\uDE1A'; 'T' -> '\uD835\uDE1B'; 'U' -> '\uD835\uDE1C'
-                    'V' -> '\uD835\uDE1D'; 'W' -> '\uD835\uDE1E'; 'X' -> '\uD835\uDE1F'
-                    'Y' -> '\uD835\uDE20'; 'Z' -> '\uD835\uDE21'
-                    'a' -> '\uD835\uDE22'; 'b' -> '\uD835\uDE23'; 'c' -> '\uD835\uDE24'
-                    'd' -> '\uD835\uDE25'; 'e' -> '\uD835\uDE26'; 'f' -> '\uD835\uDE27'
-                    'g' -> '\uD835\uDE28'; 'h' -> '\uD835\uDE29'; 'i' -> '\uD835\uDE2A'
-                    'j' -> '\uD835\uDE2B'; 'k' -> '\uD835\uDE2C'; 'l' -> '\uD835\uDE2D'
-                    'm' -> '\uD835\uDE2E'; 'n' -> '\uD835\uDE2F'; 'o' -> '\uD835\uDE30'
-                    'p' -> '\uD835\uDE31'; 'q' -> '\uD835\uDE32'; 'r' -> '\uD835\uDE33'
-                    's' -> '\uD835\uDE34'; 't' -> '\uD835\uDE35'; 'u' -> '\uD835\uDE36'
-                    'v' -> '\uD835\uDE37'; 'w' -> '\uD835\uDE38'; 'x' -> '\uD835\uDE39'
-                    'y' -> '\uD835\uDE3A'; 'z' -> '\uD835\uDE3B'
-                    else -> c
-                }
-            }.joinToString("")
-        }))
-
-        fonts.add(FontStyle("bold_fraktur", "𝕱𝖗𝖆𝖐𝖙𝖚𝖗", converter = { text ->
-            text.map { c ->
-                when (c) {
-                    'A' -> '\uD835\uDD6C'; 'B' -> '\uD835\uDD6D'; 'C' -> '\uD835\uDD6E'
-                    'D' -> '\uD835\uDD6F'; 'E' -> '\uD835\uDD70'; 'F' -> '\uD835\uDD71'
-                    'G' -> '\uD835\uDD72'; 'H' -> '\uD835\uDD73'; 'I' -> '\uD835\uDD74'
-                    'J' -> '\uD835\uDD75'; 'K' -> '\uD835\uDD76'; 'L' -> '\uD835\uDD77'
-                    'M' -> '\uD835\uDD78'; 'N' -> '\uD835\uDD79'; 'O' -> '\uD835\uDD7A'
-                    'P' -> '\uD835\uDD7B'; 'Q' -> '\uD835\uDD7C'; 'R' -> '\uD835\uDD7D'
-                    'S' -> '\uD835\uDD7E'; 'T' -> '\uD835\uDD7F'; 'U' -> '\uD835\uDD80'
-                    'V' -> '\uD835\uDD81'; 'W' -> '\uD835\uDD82'; 'X' -> '\uD835\uDD83'
-                    'Y' -> '\uD835\uDD84'; 'Z' -> '\uD835\uDD85'
-                    'a' -> '\uD835\uDD86'; 'b' -> '\uD835\uDD87'; 'c' -> '\uD835\uDD88'
-                    'd' -> '\uD835\uDD89'; 'e' -> '\uD835\uDD8A'; 'f' -> '\uD835\uDD8B'
-                    'g' -> '\uD835\uDD8C'; 'h' -> '\uD835\uDD8D'; 'i' -> '\uD835\uDD8E'
-                    'j' -> '\uD835\uDD8F'; 'k' -> '\uD835\uDD90'; 'l' -> '\uD835\uDD91'
-                    'm' -> '\uD835\uDD92'; 'n' -> '\uD835\uDD93'; 'o' -> '\uD835\uDD94'
-                    'p' -> '\uD835\uDD95'; 'q' -> '\uD835\uDD96'; 'r' -> '\uD835\uDD97'
-                    's' -> '\uD835\uDD98'; 't' -> '\uD835\uDD99'; 'u' -> '\uD835\uDD9A'
-                    'v' -> '\uD835\uDD9B'; 'w' -> '\uD835\uDD9C'; 'x' -> '\uD835\uDD9D'
-                    'y' -> '\uD835\uDD9E'; 'z' -> '\uD835\uDD9F'
-                    else -> c
-                }
-            }.joinToString("")
         }))
 
         fonts.add(FontStyle("currency", "₵ɄⱤⱤɆ₦₵Ɏ", converter = { text ->
