@@ -282,6 +282,10 @@ class MainActivity : AppCompatActivity() {
             override fun onStopTrackingTouch(seekBar: SeekBar?) {}
         })
 
+        etOutput.setOnClickListener {
+            copyToClipboard()
+        }
+
         etOutput.setOnLongClickListener {
             if (!SettingsManager.isManualCopyEnabled()) {
                 copyToClipboard()
