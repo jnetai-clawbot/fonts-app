@@ -221,19 +221,27 @@ class MainActivity : AppCompatActivity() {
         }
 
         btnSymbols.setOnClickListener {
-            animateClick(it) {
-                val visible = cardSymbols.visibility != View.VISIBLE
-                cardSymbols.visibility = if (visible) View.VISIBLE else View.GONE
-                SettingsManager.setSymbolsVisible(visible)
-            }
+            animateClick(it) { toggleSymbols() }
         }
 
         btnEmojis.setOnClickListener {
-            animateClick(it) {
-                val visible = cardEmojis.visibility != View.VISIBLE
-                cardEmojis.visibility = if (visible) View.VISIBLE else View.GONE
-                SettingsManager.setEmojisVisible(visible)
-            }
+            animateClick(it) { toggleEmojis() }
+        }
+
+        findViewById<TextView>(R.id.tvSymbolsHeader).setOnClickListener {
+            toggleSymbols()
+        }
+
+        findViewById<TextView>(R.id.tvEmojisHeader).setOnClickListener {
+            toggleEmojis()
+        }
+
+        findViewById<MaterialButton>(R.id.btnHideSymbols).setOnClickListener {
+            toggleSymbols()
+        }
+
+        findViewById<MaterialButton>(R.id.btnHideEmojis).setOnClickListener {
+            toggleEmojis()
         }
 
         findViewById<MaterialButton>(R.id.btnSave).setOnClickListener {
@@ -286,6 +294,18 @@ class MainActivity : AppCompatActivity() {
                 applyFont()
             }
         })
+    }
+
+    private fun toggleSymbols() {
+        val visible = cardSymbols.visibility != View.VISIBLE
+        cardSymbols.visibility = if (visible) View.VISIBLE else View.GONE
+        SettingsManager.setSymbolsVisible(visible)
+    }
+
+    private fun toggleEmojis() {
+        val visible = cardEmojis.visibility != View.VISIBLE
+        cardEmojis.visibility = if (visible) View.VISIBLE else View.GONE
+        SettingsManager.setEmojisVisible(visible)
     }
 
     private fun applyFont() {
