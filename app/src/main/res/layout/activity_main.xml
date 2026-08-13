@@ -22,7 +22,7 @@
             android:text="@string/app_name"
             android:textSize="28sp"
             android:textStyle="bold"
-            android:textColor="?android:textColorPrimary"
+            android:textColor="@color/text_primary"
             android:layout_marginBottom="8dp"
             android:gravity="center" />
 
@@ -57,7 +57,7 @@
                         android:text="Input"
                         android:textSize="16sp"
                         android:textStyle="bold"
-                        android:textColor="?android:textColorPrimary" />
+                        android:textColor="@color/text_primary" />
 
                     <ImageButton
                         android:id="@+id/btnPaste"
@@ -66,7 +66,7 @@
                         android:src="@android:drawable/ic_menu_edit"
                         android:background="?android:attr/selectableItemBackgroundBorderless"
                         android:contentDescription="@string/paste"
-                        android:tint="?android:textColorSecondary" />
+                        android:tint="@color/text_secondary" />
 
                     <ImageButton
                         android:id="@+id/btnClearInput"
@@ -75,7 +75,7 @@
                         android:src="@android:drawable/ic_menu_close_clear_cancel"
                         android:background="?android:attr/selectableItemBackgroundBorderless"
                         android:contentDescription="@string/clear_input"
-                        android:tint="?android:textColorSecondary" />
+                        android:tint="@color/text_secondary" />
 
                 </LinearLayout>
 
@@ -88,8 +88,8 @@
                     android:textSize="16sp"
                     android:background="@android:color/transparent"
                     android:inputType="textMultiLine|textCapSentences"
-                    android:textColor="?android:textColorPrimary"
-                    android:textColorHint="?android:textColorSecondary" />
+                    android:textColor="@color/text_primary"
+                    android:textColorHint="@color/text_secondary" />
 
             </LinearLayout>
 
@@ -126,7 +126,7 @@
                         android:text="Fonts"
                         android:textSize="16sp"
                         android:textStyle="bold"
-                        android:textColor="?android:textColorPrimary" />
+                        android:textColor="@color/text_primary" />
 
                     <Spinner
                         android:id="@+id/spinnerFavourites"
@@ -172,7 +172,7 @@
                     android:text="Symbols"
                     android:textSize="14sp"
                     android:textStyle="bold"
-                    android:textColor="?android:textColorPrimary"
+                    android:textColor="@color/text_primary"
                     android:layout_marginBottom="8dp" />
 
                 <com.google.android.flexbox.FlexboxLayout
@@ -211,7 +211,7 @@
                     android:text="Emojis"
                     android:textSize="14sp"
                     android:textStyle="bold"
-                    android:textColor="?android:textColorPrimary"
+                    android:textColor="@color/text_primary"
                     android:layout_marginBottom="8dp" />
 
                 <com.google.android.flexbox.FlexboxLayout
@@ -256,7 +256,7 @@
                         android:text="Output"
                         android:textSize="16sp"
                         android:textStyle="bold"
-                        android:textColor="?android:textColorPrimary" />
+                        android:textColor="@color/text_primary" />
 
                     <ImageButton
                         android:id="@+id/btnCopy"
@@ -265,7 +265,7 @@
                         android:src="@android:drawable/ic_menu_save"
                         android:background="?android:attr/selectableItemBackgroundBorderless"
                         android:contentDescription="@string/copy"
-                        android:tint="?android:textColorSecondary" />
+                        android:tint="@color/text_secondary" />
 
                     <ImageButton
                         android:id="@+id/btnClearOutput"
@@ -274,7 +274,7 @@
                         android:src="@android:drawable/ic_menu_close_clear_cancel"
                         android:background="?android:attr/selectableItemBackgroundBorderless"
                         android:contentDescription="@string/clear_output"
-                        android:tint="?android:textColorSecondary" />
+                        android:tint="@color/text_secondary" />
 
                 </LinearLayout>
 
@@ -287,8 +287,8 @@
                     android:textSize="16sp"
                     android:background="@android:color/transparent"
                     android:inputType="textMultiLine"
-                    android:textColor="?android:textColorPrimary"
-                    android:textColorHint="?android:textColorSecondary"
+                    android:textColor="@color/text_primary"
+                    android:textColorHint="@color/text_secondary"
                     android:focusable="false"
                     android:longClickable="true"
                     android:textIsSelectable="true" />
@@ -306,7 +306,7 @@
                         android:layout_height="wrap_content"
                         android:text="Size:"
                         android:textSize="12sp"
-                        android:textColor="?android:textColorSecondary"
+                        android:textColor="@color/text_secondary"
                         android:layout_marginEnd="8dp" />
 
                     <SeekBar
@@ -324,7 +324,7 @@
                         android:layout_height="wrap_content"
                         android:text="16"
                         android:textSize="12sp"
-                        android:textColor="?android:textColorSecondary"
+                        android:textColor="@color/text_secondary"
                         android:gravity="center" />
 
                 </LinearLayout>
@@ -356,7 +356,7 @@
                     android:text="Transform"
                     android:textSize="14sp"
                     android:textStyle="bold"
-                    android:textColor="?android:textColorPrimary"
+                    android:textColor="@color/text_primary"
                     android:layout_marginBottom="8dp" />
 
                 <LinearLayout
@@ -443,7 +443,7 @@
                     android:text="Actions"
                     android:textSize="14sp"
                     android:textStyle="bold"
-                    android:textColor="?android:textColorPrimary"
+                    android:textColor="@color/text_primary"
                     android:layout_marginBottom="8dp" />
 
                 <LinearLayout

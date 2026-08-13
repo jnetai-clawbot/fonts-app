@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:textSize="14sp"
-        android:textColor="?android:textColorPrimary"
+        android:textColor="@color/text_primary"
         android:padding="8dp" />
 
     <ImageButton
@@ -23,7 +23,7 @@
         android:src="@android:drawable/arrow_up_float"
         android:background="?android:attr/selectableItemBackgroundBorderless"
         android:contentDescription="Move Up"
-        android:tint="?android:textColorSecondary" />
+        android:tint="@color/text_secondary" />
 
     <ImageButton
         android:id="@+id/btnDown"
@@ -32,6 +32,6 @@
         android:src="@android:drawable/arrow_down_float"
         android:background="?android:attr/selectableItemBackgroundBorderless"
         android:contentDescription="Move Down"
-        android:tint="?android:textColorSecondary" />
+        android:tint="@color/text_secondary" />
 
 </LinearLayout>
