@@ -34,6 +34,13 @@ class SettingsActivity : AppCompatActivity() {
             switchAnimations.isChecked = SettingsManager.isAnimationsEnabled()
             sbAnimSpeed.progress = SettingsManager.getAnimSpeed()
 
+            val switchManualCopy = findViewById<SwitchMaterial>(R.id.switchManualCopy)
+            switchManualCopy.isChecked = SettingsManager.isManualCopyEnabled()
+            switchManualCopy.setOnCheckedChangeListener { _, isChecked ->
+                SettingsManager.setManualCopyEnabled(isChecked)
+                DebugLogger.d("Manual copy toggled: $isChecked")
+            }
+
             switchDarkMode.setOnCheckedChangeListener { _, isChecked ->
                 SettingsManager.setDarkMode(isChecked)
                 DebugLogger.d("Dark mode toggled: $isChecked")

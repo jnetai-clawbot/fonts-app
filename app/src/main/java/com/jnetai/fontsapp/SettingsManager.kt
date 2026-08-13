@@ -18,6 +18,7 @@ object SettingsManager {
     private const val KEY_SYMBOLS_VISIBLE = "symbols_visible"
     private const val KEY_EMOJIS_VISIBLE = "emojis_visible"
     private const val KEY_HIDDEN_FONTS = "hidden_fonts"
+    private const val KEY_MANUAL_COPY = "manual_copy"
 
     private lateinit var prefs: SharedPreferences
     private val gson = Gson()
@@ -155,5 +156,11 @@ object SettingsManager {
         val hidden = getHiddenFonts()
         if (hidden.contains(fontName)) hidden.remove(fontName) else hidden.add(fontName)
         setHiddenFonts(hidden)
+    }
+
+    fun isManualCopyEnabled(): Boolean = prefs.getBoolean(KEY_MANUAL_COPY, false)
+
+    fun setManualCopyEnabled(enabled: Boolean) {
+        prefs.edit().putBoolean(KEY_MANUAL_COPY, enabled).apply()
     }
 }

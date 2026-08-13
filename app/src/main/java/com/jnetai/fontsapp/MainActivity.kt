@@ -21,7 +21,7 @@ import java.io.*
 
 class MainActivity : AppCompatActivity() {
     private lateinit var etInput: EditText
-    private lateinit var etOutput: EditText
+    private lateinit var etOutput: TextView
     private lateinit var rvFonts: RecyclerView
     private lateinit var btnToggleFavs: MaterialButton
     private lateinit var sbFontSize: SeekBar
@@ -197,7 +197,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         findViewById<ImageButton>(R.id.btnClearOutput).setOnClickListener {
-            animateClick(it) { etOutput.text.clear() }
+            animateClick(it) { etOutput.text = "" }
         }
 
         findViewById<MaterialButton>(R.id.btnFlipUp).setOnClickListener {
@@ -283,8 +283,12 @@ class MainActivity : AppCompatActivity() {
         })
 
         etOutput.setOnLongClickListener {
-            copyToClipboard()
-            true
+            if (!SettingsManager.isManualCopyEnabled()) {
+                copyToClipboard()
+                true
+            } else {
+                false
+            }
         }
 
         etInput.addTextChangedListener(object : android.text.TextWatcher {

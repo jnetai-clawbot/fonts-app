@@ -140,9 +140,10 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rvFonts"
                     android:layout_width="match_parent"
-                    android:layout_height="800dp"
+                    android:layout_height="400dp"
                     android:nestedScrollingEnabled="true"
-                    android:overScrollMode="always" />
+                    android:clipToPadding="true"
+                    android:scrollbars="vertical" />
 
             </LinearLayout>
 
@@ -254,13 +255,6 @@
                         android:textSize="10sp" />
 
                 </LinearLayout>
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Emojis"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/text_primary"
-                    android:layout_marginBottom="8dp" />
 
                 <com.google.android.flexbox.FlexboxLayout
                     android:id="@+id/flexEmojis"
@@ -325,7 +319,7 @@
 
                 </LinearLayout>
 
-                <EditText
+                <TextView
                     android:id="@+id/etOutput"
                     android:layout_width="match_parent"
                     android:layout_height="120dp"
@@ -333,12 +327,10 @@
                     android:hint="@string/output_hint"
                     android:textSize="16sp"
                     android:background="@android:color/transparent"
-                    android:inputType="textMultiLine"
                     android:textColor="@color/text_primary"
                     android:textColorHint="@color/text_secondary"
-                    android:focusable="false"
-                    android:longClickable="true"
-                    android:textIsSelectable="true" />
+                    android:textIsSelectable="true"
+                    android:scrollbars="vertical" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
