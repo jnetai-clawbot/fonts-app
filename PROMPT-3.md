@@ -1,81 +1,114 @@
-Android-Fonts-App
+Fonts-App
 
-Update for extra fonts
+Update for these extra fonts and make sure they can all be converted with unicode to work on other apps and clipboard
 
 project location /home/jay/Documents/Scripts/AI/OpenCode/Android-Fonts-App/
-extra fonts location /home/jay/Documents/Scripts/AI/OpenCode/Android-Fonts-App/res/font/
-store the extra fonts in app that can put in res/font/ so they can work
 
-Add (find and download and add) these fonts and add them at the top of the list for use on this android app
+I been told it has to be Unicode font converted so it works on other apps so only use fonts that can actually work in other apps and go in clipboard etc 
 
-outline
-Material Symbols Outlined
-Uncial Antiqua
-Pirata One
-Redacted
-Monoton
+⭐ Core fonts
+Roboto
+Roboto Condensed
+Roboto Slab
+Open Sans
+Lato
+Montserrat
+Oswald
+Raleway
+Poppins
+Nunito
+Ubuntu
+Merriweather
+Playfair Display
+Source Sans 3
+Source Serif 4
+Noto Sans
+Noto Serif
+Noto Sans Mono
+Fira Sans
+Fira Mono
+Inter
+Manrope
+Work Sans
+DM Sans
+IBM Plex Sans
+IBM Plex Serif
+IBM Plex Mono
+
+✍️ Script / handwriting
 Lobster
 Pacifico
 Sacramento
-Fredericka the Great
-Bungee Shade
-Ewert
-Special Elite
-Nosifer
-Knewave
-Zeyada
-Rye
-Noto Sans Math
-Marcellus SC
-Metamorphous
-Creepster
-UnifrakturMaguntia
-Vast Shadow
-Germania One
-Geostar
-Codystar
-Grenze Gotisch
-Metal Mania
-Slackey
-Griffy
-Holtwood One SC
-Sancreek
-Faster One
-Butcherman
-Fuggles
-Caesar Dressing
+Dancing Script
+Great Vibes
+Satisfy
+Caveat
+Kaushan Script
+Permanent Marker
+Indie Flower
+Shadows Into Light
+Patrick Hand
+Kalam
+Courgette
+Cookie
+Comfortaa
+
+🎮 Display / unusual
 Orbitron
 Audiowide
 Black Ops One
-Webdings
+Bungee
+Bungee Shade
+Monoton
+Bebas Neue
+Anton
+Righteous
+Russo One
+Press Start 2P
+Exo 2
+Rajdhani
+Teko
+Faster One
+Metal Mania
+Nosifer
+Creepster
+Pirata One
+Uncial Antiqua
+Rye
+Special Elite
+Fredericka the Great
+Ewert
+Butcherman
+Griffy
+Slackey
+Sancreek
+Germania One
+Metamorphous
+UnifrakturMaguntia
+Grenze Gotisch
 Rakkas
-Impact
-Hello 123
-Londrina Outline
 
-Put all the fonts in the res/font/ folder
+💻 Monospace
+JetBrains Mono
+Fira Code
+Source Code Pro
+Inconsolata
+Hack
+IBM Plex Mono
+Ubuntu Mono
+Roboto Mono
+Space Mono
+Cousine
+Anonymous Pro
+VT323
+Share Tech Mono
+aswell as box font and circle
+gothic
 
-Use github workflows to build the app and put finally release in apk folder in the project location
+and also add any other unicode convertable fonts i may of missed out of the list but will work in apps and clipboard without issue, all the other fonts not convertable hide them in case they work in the future but disable them for now allow me to enable them to test them manually.
 
-Dont edit this file
 
-Never change anything in Backup folders (if it exists) but you can use them as a read-only reference if a mistake is made and you need to fix something
 
-Save changes to file(s) in question
 
-Then after files are added / edited then save any changes made to changes.txt
 
-Each update should use same key store so the app can update and not require uninstall of the app to update it.
-
-Each app should have its own local folder and own github repository and own keystore that remains the same so it can update without uninstall 1st and be dark centered themed and allow space at bottom so buttons or elements at the bottom of the app should not be cut off, it should look professional.
-
-App compatibility: apps needs to work on samsung s8 and onwards and google pixel 6 and onwards
-full path to Downloads is /storage/emulated/0/Download/ (called Downloads as an alias in android)
-
-In releases on github a meaningful name should be used for example Super-Fonts.apk (no need for a debug version of any app or game for android just put the debug version as the main version!
-
-Github api tokens / passwords etc can be found in /home/jay/Documents/Scripts/AI/openclaw/password-vault/
-
-Build the releases via github actions / workflows (not locally) in there own repository (1 per app)
-start now with all in order no questions asked!
 

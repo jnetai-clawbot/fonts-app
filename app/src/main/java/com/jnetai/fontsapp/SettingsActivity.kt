@@ -41,6 +41,13 @@ class SettingsActivity : AppCompatActivity() {
                 DebugLogger.d("Manual copy toggled: $isChecked")
             }
 
+            val switchShowTtf = findViewById<SwitchMaterial>(R.id.switchShowTtf)
+            switchShowTtf.isChecked = SettingsManager.isShowTtfFonts()
+            switchShowTtf.setOnCheckedChangeListener { _, isChecked ->
+                SettingsManager.setShowTtfFonts(isChecked)
+                DebugLogger.d("Show TTF fonts toggled: $isChecked")
+            }
+
             switchDarkMode.setOnCheckedChangeListener { _, isChecked ->
                 SettingsManager.setDarkMode(isChecked)
                 DebugLogger.d("Dark mode toggled: $isChecked")

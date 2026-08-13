@@ -19,6 +19,7 @@ object SettingsManager {
     private const val KEY_EMOJIS_VISIBLE = "emojis_visible"
     private const val KEY_HIDDEN_FONTS = "hidden_fonts"
     private const val KEY_MANUAL_COPY = "manual_copy"
+    private const val KEY_SHOW_TTF = "show_ttf_fonts"
 
     private lateinit var prefs: SharedPreferences
     private val gson = Gson()
@@ -162,5 +163,11 @@ object SettingsManager {
 
     fun setManualCopyEnabled(enabled: Boolean) {
         prefs.edit().putBoolean(KEY_MANUAL_COPY, enabled).apply()
+    }
+
+    fun isShowTtfFonts(): Boolean = prefs.getBoolean(KEY_SHOW_TTF, false)
+
+    fun setShowTtfFonts(enabled: Boolean) {
+        prefs.edit().putBoolean(KEY_SHOW_TTF, enabled).apply()
     }
 }
